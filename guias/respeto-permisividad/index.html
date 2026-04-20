@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crianza Respetuosa: Respeto ≠ Permisividad — Tu Educadora Amiga</title>
+<meta name="description" content="7 mitos comunes que confunden respeto con permisividad — y lo que dice la neurociencia sobre crianza respetuosa.">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#FDF6F0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Raleway:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #FDF6F0;
+    --cream-dark: #f5ebe0;
+    --dark: #2D2926;
+    --coral: #E8726E;
+    --sage: #5C7A6A;
+    --blue: #7BA7BC;
+    --blue-bg: #dceaf2;
+    --gray: #6b6560;
+    --border: #e8e0d6;
+    --font-body: 'Raleway', sans-serif;
+    --font-heading: 'Lora', serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--cream);
+    color: var(--dark);
+    font-family: var(--font-body);
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .guide {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 32px 22px 60px;
+  }
+
+  /* --- HEADER --- */
+  header {
+    text-align: center;
+    padding: 20px 0 40px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 40px;
+  }
+
+  .brand {
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--sage);
+    letter-spacing: 3px;
+    margin-bottom: 24px;
+  }
+  .brand .star {
+    color: var(--coral);
+    margin-right: 6px;
+  }
+
+  h1 {
+    font-family: var(--font-heading);
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 1.15;
+    color: var(--dark);
+    margin-bottom: 16px;
+    letter-spacing: -0.5px;
+  }
+  h1 .neq {
+    color: var(--coral);
+    font-style: normal;
+  }
+
+  .intro {
+    font-size: 16px;
+    color: var(--gray);
+    line-height: 1.5;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  /* --- MYTH SECTION --- */
+  .myth {
+    position: relative;
+    padding: 28px 0 32px;
+    border-bottom: 1px solid var(--border);
+  }
+  .myth:last-of-type {
+    border-bottom: none;
+  }
+
+  .myth-number {
+    font-family: var(--font-heading);
+    font-weight: 400;
+    font-style: italic;
+    font-size: 64px;
+    color: var(--coral);
+    opacity: 0.12;
+    position: absolute;
+    right: 0;
+    top: 20px;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .myth-label {
+    display: inline-block;
+    background: var(--blue-bg);
+    color: var(--dark);
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-family: var(--font-body);
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 18px;
+    position: relative;
+    z-index: 1;
+  }
+  .myth-label::before {
+    content: '“';
+    margin-right: 2px;
+  }
+  .myth-label::after {
+    content: '”';
+    margin-left: 2px;
+  }
+
+  .myth-body p {
+    margin-bottom: 14px;
+  }
+  .myth-body p:last-child {
+    margin-bottom: 0;
+  }
+  .myth-body strong {
+    color: var(--dark);
+    font-weight: 600;
+  }
+
+  /* --- FORMULA CARD (for last myth) --- */
+  .formula {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--coral);
+    border-radius: 10px;
+    padding: 22px 22px 20px;
+    margin: 24px 0;
+  }
+  .formula h3 {
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--coral);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .formula ol {
+    margin: 0 0 0 20px;
+    padding: 0;
+  }
+  .formula li {
+    margin-bottom: 10px;
+    font-size: 16px;
+  }
+  .formula li strong {
+    color: var(--sage);
+    font-weight: 700;
+  }
+  .formula li:last-child { margin-bottom: 0; }
+
+  .examples {
+    background: var(--cream-dark);
+    border-radius: 10px;
+    padding: 18px 22px;
+    margin: 20px 0;
+  }
+  .examples h4 {
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--sage);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .examples ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .examples li {
+    position: relative;
+    padding-left: 18px;
+    margin-bottom: 10px;
+    font-size: 15.5px;
+    line-height: 1.5;
+  }
+  .examples li::before {
+    content: '›';
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--coral);
+    font-weight: 700;
+    font-size: 18px;
+  }
+  .examples li:last-child { margin-bottom: 0; }
+
+  .tips-inline {
+    margin: 16px 0;
+    padding: 14px 0 0;
+    border-top: 1px dashed var(--border);
+  }
+  .tips-inline p {
+    font-size: 15px;
+    color: var(--gray);
+    margin-bottom: 10px;
+  }
+  .tips-inline p strong {
+    color: var(--dark);
+  }
+
+  /* --- CLOSING / CTA --- */
+  .closing {
+    margin-top: 50px;
+    padding: 30px 24px;
+    background: linear-gradient(180deg, #fffaf8, #fff4f1);
+    border: 2px solid var(--coral);
+    border-radius: 16px;
+    text-align: center;
+  }
+
+  .closing-label {
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--coral);
+    letter-spacing: 2.5px;
+    margin-bottom: 10px;
+  }
+
+  .closing h2 {
+    font-family: var(--font-heading);
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: var(--dark);
+    line-height: 1.3;
+  }
+
+  .closing p {
+    font-size: 15.5px;
+    color: var(--gray);
+    margin-bottom: 20px;
+    line-height: 1.55;
+  }
+
+  .closing-cta {
+    display: inline-block;
+    background: var(--coral);
+    color: #fff;
+    padding: 14px 28px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 15px;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  .closing-cta:hover {
+    background: #d4605c;
+  }
+
+  /* --- FOOTER --- */
+  footer {
+    text-align: center;
+    margin-top: 50px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    font-size: 13px;
+    color: var(--gray);
+  }
+  footer a {
+    color: var(--gray);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  footer a:hover {
+    color: var(--coral);
+  }
+  footer .dot {
+    margin: 0 8px;
+    opacity: 0.5;
+  }
+
+  /* --- RESPONSIVE --- */
+  @media (min-width: 520px) {
+    body { font-size: 18px; }
+    h1 { font-size: 40px; }
+    .intro { font-size: 17px; }
+    .myth-number { font-size: 88px; }
+    .closing h2 { font-size: 26px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      transition: none !important;
+    }
+  }
+</style>
+</head>
+<body>
+
+<article class="guide">
+
+  <header>
+    <div class="brand"><span class="star">★</span>TU EDUCADORA AMIGA</div>
+    <h1>Crianza respetuosa:<br>Respeto <span class="neq">≠</span> Permisividad</h1>
+    <p class="intro">7 mitos comunes que confunden respeto con permisividad — y lo que dice la neurociencia sobre cómo acompañar desde la calma.</p>
+  </header>
+
+  <!-- MYTH 01 -->
+  <section class="myth">
+    <div class="myth-number">01</div>
+    <div class="myth-label">Si no lo corrijo de inmediato, nunca va a aprender</div>
+    <div class="myth-body">
+      <p>El cerebro infantil, especialmente entre los 0 y 7 años, necesita <strong>repetición, consistencia y acompañamiento emocional</strong> para integrar aprendizajes. No se trata de "corregir" de inmediato, sino de enseñar desde la calma.</p>
+      <p>La corteza prefrontal —zona encargada del autocontrol y el razonamiento— está aún en desarrollo. Por eso lo urgente no es el castigo inmediato, sino construir un entorno predecible y seguro.</p>
+    </div>
+  </section>
+
+  <!-- MYTH 02 -->
+  <section class="myth">
+    <div class="myth-number">02</div>
+    <div class="myth-label">Si no castigo, no me va a respetar</div>
+    <div class="myth-body">
+      <p>El respeto verdadero se construye <strong>desde el vínculo, no desde el miedo</strong>. El sistema límbico, encargado de las emociones, responde a la seguridad afectiva mucho más que a las amenazas.</p>
+      <p>Los estudios muestran que el apego seguro es lo que permite al niño desarrollar empatía, autorregulación y respeto mutuo. El castigo activa la amígdala (cerebro de supervivencia), generando estrés y rabia, no aprendizaje.</p>
+    </div>
+  </section>
+
+  <!-- MYTH 03 -->
+  <section class="myth">
+    <div class="myth-number">03</div>
+    <div class="myth-label">Si l@ valido, l@ voy a malcriar</div>
+    <div class="myth-body">
+      <p>Validar no significa justificar malas conductas. Significa <strong>reconocer la emoción antes de redirigir la conducta</strong>. Esto ayuda a que el cerebro del niño aprenda a identificar y gestionar lo que siente.</p>
+      <p>La validación fortalece la conexión adulto-niño, reduce las explosiones emocionales y promueve un desarrollo más sano del sistema nervioso.</p>
+    </div>
+  </section>
+
+  <!-- MYTH 04 -->
+  <section class="myth">
+    <div class="myth-number">04</div>
+    <div class="myth-label">Los niños manipulan desde pequeños</div>
+    <div class="myth-body">
+      <p>La manipulación requiere madurez cerebral que <strong>no existe en la primera infancia</strong>. Antes de los 7 años, la mayor parte de las reacciones son respuestas emocionales desreguladas, no manipulaciones premeditadas.</p>
+      <p>Los niños pequeños buscan conexión, no control. El enfoque debe estar en acompañar la necesidad detrás de la conducta.</p>
+    </div>
+  </section>
+
+  <!-- MYTH 05 -->
+  <section class="myth">
+    <div class="myth-number">05</div>
+    <div class="myth-label">Si grito, ya no estoy criando con respeto</div>
+    <div class="myth-body">
+      <p>La crianza respetuosa no significa nunca perder la paciencia. Significa <strong>reconocer tus errores, reparar y seguir adelante desde la conexión</strong>.</p>
+      <p>La neurociencia nos enseña que la reparación tras un desborde —cuando el adulto se disculpa, se muestra humano y disponible— es tremendamente poderosa para fortalecer el vínculo. No se trata de nunca gritar, sino de reconocerlo y mostrarle al niño que los errores también se reparan.</p>
+    </div>
+  </section>
+
+  <!-- MYTH 06 -->
+  <section class="myth">
+    <div class="myth-number">06</div>
+    <div class="myth-label">En las pataletas hay que dejar que se desahogue</div>
+    <div class="myth-body">
+      <p>Acompañar <strong>no es dejar que se desborde sin límites</strong>. La regulación emocional es una habilidad que se enseña desde la presencia adulta.</p>
+      <p>El cerebro inmaduro de un niño pequeño no sabe volver a la calma solo: necesita un adulto que contenga, limite la escalada emocional y guíe hacia la regulación. No se trata de ignorar ni de "dar espacio" para el berrinche, sino de acompañar de forma firme y amorosa.</p>
+    </div>
+  </section>
+
+  <!-- MYTH 07 (con fórmula práctica) -->
+  <section class="myth">
+    <div class="myth-number">07</div>
+    <div class="myth-label">A los niños no hay que decirles "no", no entienden el "no"</div>
+    <div class="myth-body">
+      <p><strong>Falso.</strong> El "no" es una señal social básica y los niños la aprenden temprano. Lo que a veces no funciona no es el "no", sino cómo lo decimos: negaciones enredadas, demasiadas palabras, o pedir algo mencionando justo lo que no queremos ("no me pases el morado").</p>
+      <p>El cerebro atencional se engancha a la palabra concreta; por eso, si nombramos el objeto indeseado ("morado"), lo activamos. <strong>El problema no es el límite: es la formulación.</strong></p>
+      <p>El "no" sí ayuda a poner límites y es necesario para la seguridad, el cuidado del otro y las reglas de convivencia. La clave es un "no" <strong>claro + breve + opción concreta</strong>.</p>
+
+      <div class="formula">
+        <h3>Fórmula en 3 pasos</h3>
+        <ol>
+          <li><strong>Conecto:</strong> "Veo que quieres…"</li>
+          <li><strong>Límite:</strong> "No… / Aquí no…" (breve, sin sermón)</li>
+          <li><strong>Opción / Redirección:</strong> "…sí puedes…" (ofrece el qué-sí o una alternativa real)</li>
+        </ol>
+      </div>
+
+      <div class="examples">
+        <h4>Ejemplos listos</h4>
+        <ul>
+          <li>"Veo que quieres ese plumón. No lo lanzamos. Sí puedes dibujar en esta hoja."</li>
+          <li>"Quieres cruzar. No cruzamos solos. Sí nos damos la mano y cruzamos juntos."</li>
+          <li>"No subimos ahí. Sí puedes escalar en estos bloques."</li>
+          <li>"No es para tirar. Sí puedes lanzarlo así a la caja."</li>
+        </ul>
+      </div>
+
+      <div class="examples">
+        <h4>Evita las negaciones enredadas</h4>
+        <ul>
+          <li>En vez de "No me pases el morado" → "Pásame el rojo, por favor."</li>
+          <li>En vez de "No corras" → "Camina aquí al lado mío."</li>
+        </ul>
+      </div>
+
+      <div class="tips-inline">
+        <p><strong>Si persiste el riesgo, contengo con el cuerpo:</strong> "No te voy a dejar pegar; te acompaño para calmarte."</p>
+        <p><strong>Errores comunes:</strong> sermonear, preguntar lo no negociable ("¿te parece no pegar?"), dar opciones falsas, o convertir cada "no" en discusión.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLOSING / CTA -->
+  <section class="closing">
+    <div class="closing-label">SI QUIERES PROFUNDIZAR</div>
+    <h2>10 Límites Respetuosos Que Sí Funcionan</h2>
+    <p>Este tema es solo el comienzo. En mi ebook encontrarás frases listas, rutinas visuales y neurociencia aplicada al día a día, para acompañar con firmeza y ternura — sin premios, gritos ni castigos.</p>
+    <a class="closing-cta" href="https://go.hotmart.com/N105471248Y" target="_blank" rel="noopener">Conocer el ebook</a>
+  </section>
+
+  <footer>
+    <p>
+      <a href="https://tueducadoraamiga.com">tueducadoraamiga.com</a>
+      <span class="dot">·</span>
+      <a href="https://instagram.com/tueducadoraamiga" target="_blank" rel="noopener">@tueducadoraamiga</a>
+    </p>
+    <p style="margin-top:6px; opacity:0.7;">Por Dani Meniconi</p>
+  </footer>
+
+</article>
+
+</body>
+</html>
