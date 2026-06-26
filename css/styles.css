@@ -308,6 +308,78 @@ a.card:hover .card-arrow {
 }
 
 /* ============================================
+   HERO VIDEO (cuento narrado en YouTube)
+   ============================================ */
+.hero-video {
+  display: block;
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  margin-bottom: 12px;
+  background: var(--color-dark);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+}
+.hero-video img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+.hero-video::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 45%, rgba(0, 0, 0, 0.55) 100%);
+  pointer-events: none;
+}
+.hero-video:hover img { transform: scale(1.04); }
+.hero-video-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--color-coral);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+.hero-video-play::before {
+  content: '';
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 9px 0 9px 15px;
+  border-color: transparent transparent transparent #fff;
+  margin-left: 4px;
+}
+.hero-video:hover .hero-video-play {
+  transform: translate(-50%, -50%) scale(1.08);
+  background: var(--color-coral-dark);
+}
+.hero-video-label {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  padding: 18px 12px 9px;
+  color: #fff;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* ============================================
    EVENT CARD (taller presencial)
    ============================================ */
 .card--event {
