@@ -68,49 +68,30 @@
         </div>
         <p class="card-sub">La guía pedagógica para vivir el cuento en casa: por qué las manos llenas de pintura, barro o tierra son manos que aprenden, con decenas de experiencias por material y edad (1 a 6 años). Descárgala y recibe la carta semanal.</p>
 
-        <!-- MailerLite Form -->
-        <div id="mlb2-40190786" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-40190786">
-          <div class="ml-form-align-center">
-            <div class="ml-form-embedWrapper embedForm">
-              <div class="ml-form-embedBody ml-form-embedBodyDefault row-form">
-                <div class="ml-form-embedContent"></div>
-                <form class="ml-block-form" action="https://assets.mailerlite.com/jsonp/2268802/forms/185315612460844236/subscribe" data-code="" method="post" target="_blank">
-                  <div class="ml-form-formContent">
-                    <div class="ml-form-fieldRow">
-                      <div class="ml-field-group ml-field-name">
-                        <input aria-label="name" type="text" class="form-control" name="fields[name]" placeholder="Nombre" autocomplete="given-name">
-                      </div>
-                    </div>
-                    <div class="ml-form-fieldRow ml-last-item">
-                      <div class="ml-field-group ml-field-email ml-validate-email ml-validate-required">
-                        <input aria-label="email" aria-required="true" type="email" class="form-control" name="fields[email]" placeholder="Email" autocomplete="email">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="ml-form-embedPermissions">
-                    <div class="ml-form-embedPermissionsContent default privacy-policy">
-                      <p><em>Al descargar, aceptas recibir la carta semanal. Puedes darte de baja cuando quieras.</em></p>
-                    </div>
-                  </div>
-                  <input type="hidden" name="ml-submit" value="1">
-                  <div class="ml-form-embedSubmit">
-                    <button type="submit" class="primary">Quiero mi guía gratis</button>
-                    <button disabled="disabled" style="display:none;" type="button" class="loading">
-                      <div class="ml-form-embedSubmitLoad"></div>
-                      <span class="sr-only">Loading...</span>
-                    </button>
-                  </div>
-                  <input type="hidden" name="anticsrf" value="true">
-                </form>
-              </div>
-              <div class="ml-form-successBody row-success" style="display:none">
-                <div class="ml-form-successContent">
-                  <h4>¡Listo!</h4>
-                  <p>Revisa tu email — la guía ya está en camino.</p>
-                </div>
-              </div>
-            </div>
+        <!-- Guía: formulario con casillas casa/aula (custom; POST directo a MailerLite, sin librería) -->
+        <form class="lm-form" id="lmForm" novalidate>
+          <input class="lm-input" type="text" id="lmName" name="name" placeholder="Nombre" autocomplete="given-name">
+          <input class="lm-input" type="email" id="lmEmail" name="email" placeholder="Email" autocomplete="email" required>
+          <div class="lm-check">
+            <p class="lm-check-q">¿Cómo acompañás a la infancia? <span class="lm-hint">(podés marcar las dos)</span></p>
+            <label class="lm-row">
+              <input type="checkbox" id="lmCasa">
+              <span class="lm-box" aria-hidden="true"></span>
+              <span class="lm-txt">Acompaño a la infancia <strong>en casa</strong></span>
+            </label>
+            <label class="lm-row">
+              <input type="checkbox" id="lmAula">
+              <span class="lm-box" aria-hidden="true"></span>
+              <span class="lm-txt">Acompaño a la infancia <strong>en aula</strong></span>
+            </label>
           </div>
+          <button type="submit" class="lm-submit">Quiero mi guía gratis</button>
+          <p class="lm-error" id="lmError" hidden>Escribí tu email y marcá al menos una opción.</p>
+          <p class="lm-fine">Al descargar, aceptás recibir la carta semanal. Podés darte de baja cuando quieras.</p>
+        </form>
+        <div class="lm-success" id="lmSuccess" hidden>
+          <h4>¡Listo!</h4>
+          <p>Revisá tu email — la guía ya está en camino.</p>
         </div>
       </article>
 
@@ -179,16 +160,45 @@
 
   </main>
 
-  <!-- MailerLite Scripts -->
+  <!-- Guía casa/aula: envío directo a MailerLite (sin librería; soporta ambas casillas en un solo submit) -->
   <script>
-    function ml_webform_success_40190786() {
-      var $ = ml_jQuery || jQuery;
-      $('.ml-subscribe-form-40190786 .row-success').show();
-      $('.ml-subscribe-form-40190786 .row-form').hide();
-    }
+    (function () {
+      var EP = {
+        casa: "https://assets.mailerlite.com/jsonp/2268802/forms/195354419716425011/subscribe",
+        aula: "https://assets.mailerlite.com/jsonp/2268802/forms/195354452339721842/subscribe"
+      };
+      var form = document.getElementById('lmForm');
+      if (!form) return;
+      function post(action, name, email) {
+        var body = new URLSearchParams();
+        body.append('fields[name]', name);
+        body.append('fields[email]', email);
+        body.append('ml-submit', '1');
+        body.append('anticsrf', 'true');
+        try {
+          if (navigator.sendBeacon && navigator.sendBeacon(action, body)) return;
+        } catch (e) {}
+        fetch(action, { method: 'POST', mode: 'no-cors', body: body }).catch(function () {});
+      }
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var email = (document.getElementById('lmEmail').value || '').trim();
+        var name = (document.getElementById('lmName').value || '').trim();
+        var casa = document.getElementById('lmCasa').checked;
+        var aula = document.getElementById('lmAula').checked;
+        var okEmail = /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email);
+        if (!okEmail || (!casa && !aula)) {
+          document.getElementById('lmError').hidden = false;
+          return;
+        }
+        document.getElementById('lmError').hidden = true;
+        if (casa) post(EP.casa, name, email);
+        if (aula) post(EP.aula, name, email);
+        form.hidden = true;
+        document.getElementById('lmSuccess').hidden = false;
+      });
+    })();
   </script>
-  <script src="https://groot.mailerlite.com/js/w/webforms.min.js?v95037e5bac78f29ed026832ca21a7c7b" type="text/javascript"></script>
-  <script>fetch("https://assets.mailerlite.com/jsonp/2268802/forms/185315612460844236/takel")</script>
 
 </body>
 </html>

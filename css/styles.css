@@ -759,6 +759,94 @@ a.card--event:hover .card-event-cta {
 }
 
 /* ============================================
+   LEAD MAGNET FORM — casillas casa/aula
+   ============================================ */
+.lm-form { display: flex; flex-direction: column; gap: 9px; text-align: left; }
+.lm-input {
+  width: 100%;
+  background: var(--color-cream);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-size: 14px;
+  padding: 12px 14px;
+  color: var(--color-dark);
+  transition: border-color 0.2s;
+}
+.lm-input::placeholder { color: var(--color-gray-light); }
+.lm-input:focus { border-color: var(--color-coral); outline: none; }
+
+.lm-check { margin: 3px 0 1px; }
+.lm-check-q {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--color-dark);
+  margin-bottom: 6px;
+}
+.lm-hint { font-weight: 400; color: var(--color-gray-light); font-size: 11px; }
+
+.lm-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 2px;
+  cursor: pointer;
+  user-select: none;
+  font-size: 13.5px;
+  color: var(--color-dark);
+}
+.lm-row input { position: absolute; opacity: 0; width: 0; height: 0; }
+.lm-box {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  border: 1.5px solid var(--color-border);
+  border-radius: 5px;
+  background: var(--color-white);
+  position: relative;
+  transition: background 0.15s, border-color 0.15s;
+}
+.lm-row input:checked ~ .lm-box {
+  background: var(--color-coral);
+  border-color: var(--color-coral);
+}
+.lm-row input:checked ~ .lm-box::after {
+  content: '';
+  position: absolute;
+  left: 6.5px;
+  top: 3px;
+  width: 5px;
+  height: 9px;
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+.lm-row input:focus-visible ~ .lm-box {
+  box-shadow: 0 0 0 3px rgba(232, 114, 110, 0.3);
+}
+.lm-txt strong { font-weight: 700; color: var(--color-coral-dark); }
+
+.lm-submit {
+  background: var(--color-coral);
+  color: #fff;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 700;
+  padding: 14px;
+  width: 100%;
+  margin-top: 2px;
+  transition: background 0.2s;
+}
+.lm-submit:hover { background: var(--color-coral-dark); }
+.lm-error { color: var(--color-coral-dark); font-size: 12px; margin: 0; font-weight: 600; }
+.lm-fine { font-size: 10px; color: var(--color-gray-light); line-height: 1.4; margin: 0; }
+.lm-success { text-align: center; padding: 12px 0; }
+.lm-success h4 { font-family: var(--font-heading); color: var(--color-coral); font-size: 20px; margin-bottom: 8px; }
+.lm-success p { font-family: var(--font-body); color: var(--color-gray); font-size: 14px; }
+.lm-sink { display: none; width: 0; height: 0; border: 0; }
+
+/* ============================================
    DESKTOP (slight adjustments)
    ============================================ */
 @media (min-width: 540px) {
