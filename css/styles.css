@@ -759,6 +759,67 @@ a.card--event:hover .card-event-cta {
 }
 
 /* ============================================
+   SELECTOR casa/aula (lead magnet)
+   ============================================ */
+.guia-choice {
+  margin-top: 2px;
+}
+.choice-q {
+  font-family: var(--font-body);
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--color-dark);
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+.choice-btns {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.choice-btn {
+  width: 100%;
+  padding: 13px 14px;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-cream);
+  color: var(--color-dark);
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 500;
+  text-align: center;
+  transition: border-color 0.2s, background 0.2s, transform 0.15s;
+}
+.choice-btn strong {
+  color: var(--color-coral);
+  font-weight: 700;
+}
+.choice-btn:hover {
+  border-color: var(--color-coral);
+  background: #fffaf8;
+  transform: translateY(-1px);
+}
+.guia-form {
+  display: none;
+}
+.guia-form.show {
+  display: block;
+}
+.choice-back {
+  background: none;
+  border: none;
+  color: var(--color-gray-light);
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 0;
+  margin-bottom: 10px;
+}
+.choice-back:hover {
+  color: var(--color-coral);
+}
+
+/* ============================================
    DESKTOP (slight adjustments)
    ============================================ */
 @media (min-width: 540px) {
