@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tu Educadora Amiga — Tu grupo</title>
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400;1,600&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css">
+  <style>
+    .g-btn {
+      display: block;
+      text-align: center;
+      text-decoration: none;
+      box-sizing: border-box;
+      margin-top: 8px;
+    }
+    .g-back { color: var(--color-coral-dark); text-decoration: underline; }
+    .card--hero .card-badge .badge-icon { font-size: 12px; }
+  </style>
+</head>
+<body>
+
+  <main class="page">
+
+    <section class="banner">
+      <div class="banner-deco">
+        <span class="star star--1">★</span>
+        <span class="star star--2">★</span>
+        <span class="star star--3">★</span>
+      </div>
+    </section>
+
+    <div class="avatar">
+      <img src="../img/foto_dani_bio.jpg" alt="Dani Meniconi">
+    </div>
+
+    <header class="brand">
+      <h1>Tu Educadora Amiga</h1>
+      <p class="tagline">Recursos para acompañar la primera infancia</p>
+    </header>
+
+    <section class="cards">
+      <article class="card card--hero">
+
+        <div id="gDone" hidden>
+          <div class="card-badge">
+            <span class="badge-icon">✓</span>
+            <span class="badge-text" id="gBadge">LISTO</span>
+          </div>
+          <h2 id="gTitle">¡Listo! Ya estás en el grupo.</h2>
+          <p class="card-sub" id="gMsg"></p>
+          <a class="lm-submit g-btn" id="gOther" href="#"></a>
+          <p class="lm-fine" style="margin-top:14px;">
+            <a class="g-back" href="/">Volver a Tu Educadora Amiga</a>
+          </p>
+        </div>
+
+        <div id="gErr" hidden>
+          <h2>Abre este enlace desde el correo</h2>
+          <p class="card-sub">Para elegir tu grupo, entra desde el enlace del correo de Tu Educadora Amiga. Si el problema sigue, escríbenos a <a class="g-back" href="mailto:tueducadoraamiga@gmail.com">tueducadoraamiga@gmail.com</a>.</p>
+        </div>
+
+      </article>
+    </section>
+
+    <footer class="footer">
+      <p class="footer-fine">Tu Educadora Amiga — Por Dani Meniconi</p>
+    </footer>
+
+  </main>
+
+  <script>
+    (function () {
+      var EP = {
+        casa: "https://assets.mailerlite.com/jsonp/2268802/forms/195811428292101865/subscribe",
+        aula: "https://assets.mailerlite.com/jsonp/2268802/forms/195811603740886553/subscribe"
+      };
+      var LABEL = { casa: "en casa", aula: "en aula" };
+      var params = new URLSearchParams(location.search);
+      var g = (params.get('g') || '').toLowerCase();
+      var email = (params.get('e') || params.get('email') || '').trim();
+      var done = document.getElementById('gDone');
+      var err = document.getElementById('gErr');
+
+      var validGroup = (g === 'casa' || g === 'aula');
+      var validEmail = /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email);
+
+      if (!validGroup || !validEmail) {
+        err.hidden = false;
+        return;
+      }
+
+      // Agregar al grupo (POST directo, sin librería) — solo tag, NO dispara la guía
+      var body = new URLSearchParams();
+      body.append('fields[email]', email);
+      body.append('ml-submit', '1');
+      body.append('anticsrf', 'true');
+      try {
+        if (!(navigator.sendBeacon && navigator.sendBeacon(EP[g], body))) throw 0;
+      } catch (e) {
+        fetch(EP[g], { method: 'POST', mode: 'no-cors', body: body }).catch(function () {});
+      }
+
+      // Mensaje de confirmación
+      document.getElementById('gBadge').textContent = 'YA ESTÁS EN "' + LABEL[g].toUpperCase() + '"';
+      document.getElementById('gMsg').textContent = 'Vas a recibir el contenido pensado para quienes acompañan a la infancia ' + LABEL[g] + '. Cuando Dani lance algo para tu grupo, te va a llegar a ti.';
+
+      // Botón para sumarse también al otro grupo
+      var other = (g === 'casa') ? 'aula' : 'casa';
+      var btn = document.getElementById('gOther');
+      btn.textContent = '¿También acompañas ' + LABEL[other] + '? Súmate';
+      btn.href = '?g=' + other + '&e=' + encodeURIComponent(email);
+
+      done.hidden = false;
+    })();
+  </script>
+
+</body>
+</html>
