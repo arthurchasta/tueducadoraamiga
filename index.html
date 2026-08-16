@@ -45,24 +45,14 @@
     <!-- CARDS -->
     <section class="cards">
 
-      <!-- CARD 1: CUENTO (regalo) + SUSCRIPCIÓN a la carta con casillas casa/aula (hero) -->
-      <article class="card card--hero" id="guia">
-        <h2>Cada vez que mis manos…</h2>
-
-        <!-- El cuento, de regalo -->
-        <a class="hero-video" href="https://www.youtube.com/watch?v=2w7jsJdKh4Q" target="_blank" rel="noopener" aria-label="Ver «Cada vez que mis manos…» narrado por Dani en YouTube">
-          <span class="hero-video-tag">▶ El cuento</span>
-          <img src="https://img.youtube.com/vi/2w7jsJdKh4Q/maxresdefault.jpg" alt="Cuento «Cada vez que mis manos…» narrado por Dani" loading="lazy">
-          <span class="hero-video-play" aria-hidden="true"></span>
-          <span class="hero-video-label">Narrado por Dani · míralo gratis</span>
-        </a>
-
-        <p class="card-sub lm-gift">Te dejo un cuento que creé para ti, para que lo disfrutes junto a la infancia que acompañas. ✨</p>
-
-        <div class="lm-hr" aria-hidden="true"></div>
-
-        <h3 class="lm-subtitle">Suscríbete a la carta semanal</h3>
-        <p class="card-sub">Cada semana te escribo con ideas y reflexiones para acompañar la infancia. Es gratis, y te puedes dar de baja cuando quieras.</p>
+      <!-- CARD 1: SUSCRIPCIÓN a la carta = LO PRINCIPAL (hero) con casillas casa/aula -->
+      <article class="card card--hero" id="suscribe">
+        <div class="card-badge">
+          <span class="badge-icon">✉️</span>
+          <span class="badge-text">CARTA SEMANAL · GRATIS</span>
+        </div>
+        <h2>Ideas para acompañar la infancia, cada semana</h2>
+        <p class="card-sub">Te escribo una carta cada semana, con ideas y reflexiones para acompañar la infancia en casa o en el aula. Suscríbete gratis; te puedes dar de baja cuando quieras.</p>
 
         <!-- Suscripción a la carta + casillas casa/aula (custom; POST directo a MailerLite, sin librería).
              OJO: NO debe mandar la guía. Los forms casa/aula ya no deben tener el grupo "Mis Manos"
@@ -92,6 +82,20 @@
           <p>Ya estás suscrita a la carta semanal. ¡Nos leemos pronto!</p>
         </div>
       </article>
+
+      <!-- CARD 2: BONUS — el cuento en YouTube (recomendación, secundario) -->
+      <a class="card card--bonus" id="cuento" href="https://www.youtube.com/watch?v=2w7jsJdKh4Q" target="_blank" rel="noopener" aria-label="Ver el cuento «Cada vez que mis manos…» narrado por Dani en YouTube">
+        <div class="bonus-thumb">
+          <img src="https://img.youtube.com/vi/2w7jsJdKh4Q/mqdefault.jpg" alt="Cuento «Cada vez que mis manos…»" loading="lazy">
+          <span class="bonus-play" aria-hidden="true"></span>
+        </div>
+        <div class="card-body">
+          <span class="card-type">🎁 Un regalo para ti</span>
+          <h3>Cada vez que mis manos…</h3>
+          <span class="bonus-sub">Un cuento que creé para ti. Míralo gratis en YouTube.</span>
+        </div>
+        <span class="card-arrow" aria-hidden="true">→</span>
+      </a>
 
       <!-- CARD: EBOOK LÍMITES (próximamente, sin link — jun 2026) -->
       <div class="card card--product card--soon" id="ebook-limites">
