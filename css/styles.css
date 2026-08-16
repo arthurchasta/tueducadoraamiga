@@ -845,6 +845,9 @@ a.card--event:hover .card-event-cta {
 .lm-success h4 { font-family: var(--font-heading); color: var(--color-coral); font-size: 20px; margin-bottom: 8px; }
 .lm-success p { font-family: var(--font-body); color: var(--color-gray); font-size: 14px; }
 .lm-sink { display: none; width: 0; height: 0; border: 0; }
+.lm-gift { margin-top: 12px; font-style: italic; }
+.lm-hr { height: 1px; background: var(--color-border); margin: 16px 0 14px; border: 0; }
+.lm-subtitle { font-family: var(--font-heading); font-size: 17px; font-weight: 600; color: var(--color-dark); margin-bottom: 6px; }
 
 /* ============================================
    DESKTOP (slight adjustments)

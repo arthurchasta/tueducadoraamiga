@@ -45,11 +45,11 @@
     <!-- CARDS -->
     <section class="cards">
 
-      <!-- CARD 1: LEAD MAGNET (hero, destacada) -->
+      <!-- CARD 1: CUENTO (regalo) + SUSCRIPCIÓN a la carta con casillas casa/aula (hero) -->
       <article class="card card--hero" id="guia">
         <h2>Cada vez que mis manos…</h2>
 
-        <!-- COMBO visual: el cuento (video) ──flecha──> su guía (form) -->
+        <!-- El cuento, de regalo -->
         <a class="hero-video" href="https://www.youtube.com/watch?v=2w7jsJdKh4Q" target="_blank" rel="noopener" aria-label="Ver «Cada vez que mis manos…» narrado por Dani en YouTube">
           <span class="hero-video-tag">▶ El cuento</span>
           <img src="https://img.youtube.com/vi/2w7jsJdKh4Q/maxresdefault.jpg" alt="Cuento «Cada vez que mis manos…» narrado por Dani" loading="lazy">
@@ -57,18 +57,16 @@
           <span class="hero-video-label">Narrado por Dani · míralo gratis</span>
         </a>
 
-        <div class="hero-pair">
-          <span class="hero-pair-arrow" aria-hidden="true">↓</span>
-          <span class="hero-pair-text">y esta es su guía, aquí abajo</span>
-        </div>
+        <p class="card-sub lm-gift">Te dejo un cuento que creé para ti, para que lo disfrutes junto a la infancia que acompañas. ✨</p>
 
-        <div class="card-badge">
-          <span class="badge-icon">🎁</span>
-          <span class="badge-text">GUÍA GRATIS</span>
-        </div>
-        <p class="card-sub">La guía pedagógica para vivir el cuento en casa: por qué las manos llenas de pintura, barro o tierra son manos que aprenden, con decenas de experiencias por material y edad (1 a 6 años). Descárgala y recibe la carta semanal.</p>
+        <div class="lm-hr" aria-hidden="true"></div>
 
-        <!-- Guía: formulario con casillas casa/aula (custom; POST directo a MailerLite, sin librería) -->
+        <h3 class="lm-subtitle">Suscríbete a la carta semanal</h3>
+        <p class="card-sub">Cada semana te escribo con ideas y reflexiones para acompañar la infancia. Es gratis, y te puedes dar de baja cuando quieras.</p>
+
+        <!-- Suscripción a la carta + casillas casa/aula (custom; POST directo a MailerLite, sin librería).
+             OJO: NO debe mandar la guía. Los forms casa/aula ya no deben tener el grupo "Mis Manos"
+             (o la automatización de Mis Manos debe estar pausada). -->
         <form class="lm-form" id="lmForm" novalidate>
           <input class="lm-input" type="text" id="lmName" name="name" placeholder="Nombre" autocomplete="given-name">
           <input class="lm-input" type="email" id="lmEmail" name="email" placeholder="Email" autocomplete="email" required>
@@ -85,13 +83,13 @@
               <span class="lm-txt">Acompaño a la infancia <strong>en aula</strong></span>
             </label>
           </div>
-          <button type="submit" class="lm-submit">Quiero mi guía gratis</button>
+          <button type="submit" class="lm-submit">Suscribirme gratis</button>
           <p class="lm-error" id="lmError" hidden>Escribe tu email y marca al menos una opción.</p>
-          <p class="lm-fine">Al descargar, aceptas recibir la carta semanal. Puedes darte de baja cuando quieras.</p>
+          <p class="lm-fine">Te llega la carta cada semana. Te puedes dar de baja cuando quieras.</p>
         </form>
         <div class="lm-success" id="lmSuccess" hidden>
           <h4>¡Listo!</h4>
-          <p>Revisa tu email — la guía ya está en camino.</p>
+          <p>Ya estás suscrita a la carta semanal. ¡Nos leemos pronto!</p>
         </div>
       </article>
 
@@ -130,21 +128,7 @@
         </div>
       </div>
 
-      <!-- CARD 5: NEWSLETTER -->
-      <article class="card card--newsletter" id="newsletter">
-        <div class="card-body card-body--center">
-          <span class="card-icon">✉️</span>
-          <h3>La carta semanal de Dani</h3>
-          <p class="card-sub">Cada semana, una reflexión sobre infancia, presencia y respeto.</p>
-          <form class="newsletter-form" action="https://assets.mailerlite.com/jsonp/2268802/forms/185315612460844236/subscribe" method="post" target="_blank">
-            <input type="hidden" name="fields[name]" value="">
-            <input type="email" name="fields[email]" placeholder="Tu email" required>
-            <input type="hidden" name="ml-submit" value="1">
-            <input type="hidden" name="anticsrf" value="true">
-            <button type="submit">Suscribirme</button>
-          </form>
-        </div>
-      </article>
+      <!-- (Card newsletter del pie retirada 16 ago 2026: el subscribe ahora vive en el hero con casillas casa/aula) -->
 
     </section>
 
