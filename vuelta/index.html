@@ -3,36 +3,39 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tu Educadora Amiga — La comunidad para acompañar la infancia</title>
-  <meta name="description" content="La infancia no se acelera. Se honra. La comunidad de Dani Meniconi para quienes acompañan a la niñez en el aula o en casa. Inspirada en la filosofía Reggio Emilia.">
-  <meta property="og:title" content="Tu Educadora Amiga — La comunidad para acompañar la infancia">
-  <meta property="og:description" content="La infancia no se acelera. Se honra. Para quienes acompañan a la niñez en el aula o en casa. Inspirada en la filosofía Reggio Emilia.">
+  <title>La semana del regreso — Mini guía gratuita | Tu Educadora Amiga</title>
+  <meta name="description" content="Vuelven después del 18, justo cuando empieza la primavera. Mini guía gratuita: qué esperar, qué no exigir, cinco rincones para recibirlos y una propuesta para escuchar lo que traen.">
+  <meta property="og:title" content="La semana del regreso del 18 + primavera">
+  <meta property="og:description" content="Mini guía gratuita para que los primeros días sean para volver a sentirse seguros, no para recuperar el tiempo.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://tueducadoraamiga.com">
+  <meta property="og:url" content="https://tueducadoraamiga.com/vuelta">
   <meta property="og:image" content="https://tueducadoraamiga.com/img/cover_regreso.jpg">
+  <meta name="theme-color" content="#FDF6F0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400;1,600&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
 
-  <main class="page page--home">
+  <main class="page page--vuelta">
 
     <!-- CABECERA COMPACTA -->
     <header class="lockup">
-      <img class="lockup-avatar" src="img/foto_dani_bio.jpg" alt="Dani Meniconi">
-      <div class="lockup-txt">
-        <h1>Tu Educadora Amiga</h1>
-        <p class="tagline">Presencia y asombro</p>
-      </div>
+      <a href="../" style="display:flex;align-items:center;gap:11px;">
+        <img class="lockup-avatar" src="../img/foto_dani_bio.jpg" alt="Dani Meniconi">
+        <div class="lockup-txt">
+          <h1>Tu Educadora Amiga</h1>
+          <p class="tagline">Presencia y asombro</p>
+        </div>
+      </a>
     </header>
 
-    <!-- ============ 1. EL LEAD MAGNET (+ suscripción a la carta) ============ -->
-    <section class="lmh" id="guia">
+    <!-- ============ EL LEAD MAGNET ============ -->
+    <section class="lmh">
       <span class="chip">Mini guía gratuita</span>
 
-      <img class="lmh-cover" src="img/cover_regreso.jpg" alt="La semana del regreso — mini guía de Tu Educadora Amiga" fetchpriority="high">
+      <img class="lmh-cover" src="../img/cover_regreso.jpg" alt="La semana del regreso — mini guía de Tu Educadora Amiga" fetchpriority="high">
 
       <h2 class="hero-titulo">La semana del regreso del 18 + primavera</h2>
 
@@ -50,8 +53,7 @@
       </ul>
 
       <!-- Form custom: POST directo a MailerLite (casa / aula), sin librería.
-           Mismos endpoints que /vuelta/. Los dos agregan al grupo que dispara
-           la entrega de la guía + el tag de audiencia (casa / aula). -->
+           Los dos endpoints agregan al grupo que dispara la entrega de la guía. -->
       <form class="lm-form" id="lmForm" novalidate>
         <input class="lm-input" type="text" id="lmName" name="name" placeholder="Nombre" autocomplete="given-name">
         <input class="lm-input" type="email" id="lmEmail" name="email" placeholder="Email" autocomplete="email" required>
@@ -81,50 +83,6 @@
         <p>Revisa tu correo, la guía ya va en camino.</p>
         <p class="lm-success-fine">Si no la ves en unos minutos, busca en spam o promociones.</p>
       </div>
-    </section>
-
-    <!-- ============ 2. LA COMUNIDAD ============ -->
-    <section class="hero hero--school" id="comunidad">
-      <div class="hero-img">
-        <img src="img/comunidad_atelier.jpg" alt="El Atelier de Tu Educadora Amiga — con certificaciones oficiales de Reggio Children" loading="lazy">
-      </div>
-
-      <span class="chip">Nuevo</span>
-
-      <h2 class="hero-titulo">La infancia no se acelera.<br>Se honra.</h2>
-
-      <p class="hero-bajada">
-        Un lugar para ti, que acompañas a la niñez en el aula o en casa. Sin apuros,
-        sin hojas de trabajo, sin resultados forzados. Estoy acá para acompañarte en
-        el camino, igual que lo hago con mi equipo en Bianca Stella Playgroup.
-      </p>
-
-      <a class="btn-cta" href="https://www.skool.com/tu-educadora-amiga-9257/about?utm_source=web&amp;utm_medium=home&amp;utm_campaign=apertura" target="_blank" rel="noopener">
-        Entrar a la comunidad
-      </a>
-      <p class="btn-fine">Inspirada en la filosofía Reggio Emilia.</p>
-    </section>
-
-    <!-- ============ 3. QUIÉN TE ACOMPAÑA ============ -->
-    <section class="bloque dani">
-      <img class="dani-foto" src="img/foto_asesoria.jpg" alt="Dani Meniconi" loading="lazy">
-      <div class="dani-txt">
-        <h3 class="bloque-titulo">Quién te acompaña</h3>
-        <p>
-          Soy Dani Meniconi. El 2018 fundé Bianca Stella Playgroup y desde entonces acompaño a mi
-          equipo y a las familias todos los días. Me formé con Red Solare Argentina y Reggio Children
-          (40 horas presenciales el 2016) y tengo dos certificados firmados por el presidente de
-          Reggio Children. En octubre viajo a Reggio Emilia.
-        </p>
-      </div>
-    </section>
-
-    <!-- ============ 4. CIERRE ============ -->
-    <section class="cierre">
-      <p class="cierre-frase">Nos vemos adentro.</p>
-      <a class="btn-cta" href="https://www.skool.com/tu-educadora-amiga-9257/about?utm_source=web&amp;utm_medium=cierre&amp;utm_campaign=apertura" target="_blank" rel="noopener">
-        Entrar a la comunidad
-      </a>
     </section>
 
     <!-- FOOTER -->

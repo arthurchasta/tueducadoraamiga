@@ -1175,3 +1175,79 @@ a.card--bonus:hover .bonus-thumb img { transform: scale(1.05); }
   .ateliers { grid-template-columns: 1fr; }
   .hero-titulo { font-size: 24px; }
 }
+
+/* ============================================================
+   LEAD MAGNET "La semana del regreso" — 21 sep 2026
+   Scopeado con .lmh / .trae / .page--vuelta / .hero--school.
+   No toca /grupo/ ni /guias/.
+   ============================================================ */
+
+/* ---- Tarjeta hero del lead magnet ---- */
+.lmh {
+  background: var(--color-white);
+  border: 2px solid var(--color-coral);
+  border-radius: var(--radius-lg);
+  padding: 0 0 20px;
+  overflow: hidden;
+  box-shadow: var(--shadow-hero);
+}
+.lmh .chip { background: var(--color-coral); }
+
+.lmh-cover {
+  display: block;
+  width: 58%;
+  max-width: 215px;
+  margin: 18px auto 0;
+  border-radius: 5px;
+  box-shadow: 0 10px 26px rgba(45, 41, 38, 0.2);
+}
+
+.lmh .hero-titulo { margin-top: 15px; }
+
+/* ---- Qué trae ---- */
+.trae {
+  list-style: none;
+  margin: 15px 20px 0;
+  padding: 0;
+}
+.trae li {
+  position: relative;
+  padding-left: 22px;
+  margin-bottom: 9px;
+  font-size: 13px;
+  line-height: 1.5;
+}
+.trae li:last-child { margin-bottom: 0; }
+.trae li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--color-coral);
+  font-weight: 700;
+  font-size: 13px;
+}
+
+/* ---- Formulario dentro del hero ---- */
+.lmh .lm-form { margin: 18px 20px 0; }
+.lmh .lm-fine {
+  margin-top: 8px;
+  font-size: 10.5px;
+  line-height: 1.55;
+  color: var(--color-gray);
+  text-align: center;
+}
+.lmh .lm-success { padding: 26px 20px 4px; }
+.lmh .lm-success .lm-success-fine {
+  font-size: 11.5px;
+  color: var(--color-gray-light);
+  margin-top: 7px;
+}
+
+/* ---- La comunidad, ahora más abajo ---- */
+.hero--school { margin-top: 30px; }
+.hero--school .hero-img img { aspect-ratio: 1200 / 633; }
+
+/* ---- Página /vuelta (solo el lead magnet) ---- */
+.page--vuelta { padding-bottom: 34px; }
+.page--vuelta .lmh { margin-top: 2px; }
