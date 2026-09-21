@@ -53,7 +53,8 @@
       </ul>
 
       <!-- Form custom: POST directo a MailerLite (casa / aula), sin librería.
-           Los dos endpoints agregan al grupo que dispara la entrega de la guía. -->
+           OJO: el grupo que dispara la guía cuelga SOLO del form de AULA.
+           Marcar solo "en casa" suscribe a la carta y no manda la guía. -->
       <form class="lm-form" id="lmForm" novalidate>
         <input class="lm-input" type="text" id="lmName" name="name" placeholder="Nombre" autocomplete="given-name">
         <input class="lm-input" type="email" id="lmEmail" name="email" placeholder="Email" autocomplete="email" required>
@@ -70,18 +71,19 @@
             <span class="lm-txt">Acompaño a la infancia <strong>en aula</strong></span>
           </label>
         </div>
-        <button type="submit" class="lm-submit">Quiero la guía</button>
+        <p class="lm-nota-aula">La guía está escrita para la sala. Si acompañas solo en casa, igual te llega mi carta de los miércoles.</p>
+        <button type="submit" class="lm-submit" id="lmBtn">Quiero la guía</button>
         <p class="lm-error" id="lmError" hidden>Escribe tu email y marca al menos una opción.</p>
         <p class="lm-fine">
-          Te llega al correo en un minuto. Al descargarla te suscribes a mi carta de
+          Te llega al correo en un minuto. Al inscribirte te suscribes a mi carta de
           los miércoles, te puedes dar de baja cuando quieras.
         </p>
       </form>
 
       <div class="lm-success" id="lmSuccess" hidden>
         <h4>¡Listo!</h4>
-        <p>Revisa tu correo, la guía ya va en camino.</p>
-        <p class="lm-success-fine">Si no la ves en unos minutos, busca en spam o promociones.</p>
+        <p id="lmSuccessTxt">Revisa tu correo, la guía ya va en camino.</p>
+        <p class="lm-success-fine" id="lmSuccessFine">Si no la ves en unos minutos, busca en spam o promociones.</p>
       </div>
     </section>
 
@@ -131,9 +133,26 @@
         document.getElementById('lmError').hidden = true;
         if (casa) post(EP.casa, name, email);
         if (aula) post(EP.aula, name, email);
+        // La guía sale SOLO por el form de aula (la automatización de MailerLite
+        // cuelga únicamente de ese form). Quien marca solo casa entra a la carta.
+        var soloCasa = casa && !aula;
+        document.getElementById('lmSuccessTxt').textContent = soloCasa
+          ? 'Ya estás suscrita a la carta de los miércoles.'
+          : 'Revisa tu correo, la guía ya va en camino.';
+        document.getElementById('lmSuccessFine').hidden = soloCasa;
         form.hidden = true;
         document.getElementById('lmSuccess').hidden = false;
       });
+
+      /* El botón dice lo que la persona va a recibir de verdad */
+      var btn = document.getElementById('lmBtn');
+      function sincronizarBoton() {
+        var soloCasa = document.getElementById('lmCasa').checked
+                    && !document.getElementById('lmAula').checked;
+        btn.textContent = soloCasa ? 'Quiero la carta' : 'Quiero la guía';
+      }
+      document.getElementById('lmCasa').addEventListener('change', sincronizarBoton);
+      document.getElementById('lmAula').addEventListener('change', sincronizarBoton);
     })();
   </script>
 

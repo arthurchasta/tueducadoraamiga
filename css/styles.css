@@ -1248,6 +1248,17 @@ a.card--bonus:hover .bonus-thumb img { transform: scale(1.05); }
 .hero--school { margin-top: 30px; }
 .hero--school .hero-img img { aspect-ratio: 1200 / 633; }
 
+/* ---- Aviso: la guía es para el aula ---- */
+.lm-nota-aula {
+  font-size: 11px;
+  line-height: 1.5;
+  color: var(--color-gray);
+  background: var(--color-cream-dark);
+  border-radius: var(--radius-sm);
+  padding: 8px 10px;
+  margin: 9px 0 2px;
+}
+
 /* ---- Cierre sin botón: frase suelta, no una tarjeta vacía ---- */
 .cierre--sola {
   background: none;
