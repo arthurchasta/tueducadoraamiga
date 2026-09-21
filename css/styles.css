@@ -1248,6 +1248,14 @@ a.card--bonus:hover .bonus-thumb img { transform: scale(1.05); }
 .hero--school { margin-top: 30px; }
 .hero--school .hero-img img { aspect-ratio: 1200 / 633; }
 
+/* ---- Cierre sin botón: frase suelta, no una tarjeta vacía ---- */
+.cierre--sola {
+  background: none;
+  border: none;
+  padding: 26px 0 4px;
+}
+.cierre--sola .cierre-frase { margin: 0; }
+
 /* ---- Página /vuelta (solo el lead magnet) ---- */
 .page--vuelta { padding-bottom: 34px; }
 .page--vuelta .lmh { margin-top: 2px; }
