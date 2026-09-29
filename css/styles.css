@@ -904,6 +904,9 @@ a.card--bonus:hover .bonus-thumb img { transform: scale(1.05); }
 :root {
   --color-school: #21B8A6;
   --color-school-dark: #189183;
+  /* Comunidad de casa: verde salvia, para que se distinga del turquesa de aula */
+  --color-casa: #4F6B5C;
+  --color-casa-dark: #3A4A3A;
 }
 
 /* ---- Banda de apertura (full-bleed, caduca sola por JS) ---- */
@@ -1253,6 +1256,15 @@ a.card--bonus:hover .bonus-thumb img { transform: scale(1.05); }
   color: var(--color-gray);
 }
 
+/* ---- Bloque de la comunidad de casa: mismo chasis, otro acento ---- */
+.hero--casa {
+  margin-top: 30px;
+  border-color: var(--color-casa);
+  /* la sombra base es turquesa: si no se cambia, el bloque queda con dos acentos */
+  box-shadow: 0 8px 28px rgba(79, 107, 92, 0.15);
+}
+.hero--casa .chip { background: var(--color-casa); }
+
 /* ---- La promesa del bloque comunidad: una linea suelta, no parrafo ---- */
 .hero-promesa {
   margin: 13px 20px 0;
@@ -1262,6 +1274,7 @@ a.card--bonus:hover .bonus-thumb img { transform: scale(1.05); }
   line-height: 1.45;
   color: var(--color-school-dark);
 }
+.hero-promesa--casa { color: var(--color-casa-dark); }
 .hero--school .hero-img img { aspect-ratio: 1200 / 633; }
 
 /* ---- Aviso: la guía es para el aula ---- */
