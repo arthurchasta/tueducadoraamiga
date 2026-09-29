@@ -904,9 +904,15 @@ a.card--bonus:hover .bonus-thumb img { transform: scale(1.05); }
 :root {
   --color-school: #21B8A6;
   --color-school-dark: #189183;
-  /* Comunidad de casa: verde salvia, para que se distinga del turquesa de aula */
-  --color-casa: #4F6B5C;
-  --color-casa-dark: #3A4A3A;
+  /* Aula: verde salvia, de naturaleza. Casa: sandia pastel, el color de la marca.
+     El chip y el texto van mas oscuros que el borde por contraste: el pastel
+     puro sobre blanco no llega ni a 2.5:1 y la letra chica no se lee. */
+  --color-aula: #5C7A6A;
+  --color-aula-chip: #4F6B5C;
+  --color-aula-dark: #3A4A3A;
+  --color-casa: #F0958F;
+  --color-casa-chip: #B5524C;
+  --color-casa-dark: #A8483F;
 }
 
 /* ---- Banda de apertura (full-bleed, caduca sola por JS) ---- */
@@ -1248,7 +1254,12 @@ a.card--bonus:hover .bonus-thumb img { transform: scale(1.05); }
 }
 
 /* ---- La comunidad, ahora más abajo ---- */
-.hero--school { margin-top: 30px; }
+.hero--school {
+  margin-top: 30px;
+  border-color: var(--color-aula);
+  box-shadow: 0 8px 28px rgba(92, 122, 106, 0.16);
+}
+.hero--school .chip { background: var(--color-aula-chip); }
 
 /* ---- El precio es letra chica, pero legible: #999 a 10.5px no se lee ---- */
 .btn-fine--precio {
@@ -1261,9 +1272,9 @@ a.card--bonus:hover .bonus-thumb img { transform: scale(1.05); }
   margin-top: 30px;
   border-color: var(--color-casa);
   /* la sombra base es turquesa: si no se cambia, el bloque queda con dos acentos */
-  box-shadow: 0 8px 28px rgba(79, 107, 92, 0.15);
+  box-shadow: 0 8px 28px rgba(232, 114, 110, 0.18);
 }
-.hero--casa .chip { background: var(--color-casa); }
+.hero--casa .chip { background: var(--color-casa-chip); }
 
 /* ---- La promesa del bloque comunidad: una linea suelta, no parrafo ---- */
 .hero-promesa {
@@ -1272,7 +1283,7 @@ a.card--bonus:hover .bonus-thumb img { transform: scale(1.05); }
   font-size: 15px;
   font-style: italic;
   line-height: 1.45;
-  color: var(--color-school-dark);
+  color: var(--color-aula-dark);
 }
 .hero-promesa--casa { color: var(--color-casa-dark); }
 .hero--school .hero-img img { aspect-ratio: 1200 / 633; }
