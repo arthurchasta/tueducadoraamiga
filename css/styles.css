@@ -1246,6 +1246,22 @@ a.card--bonus:hover .bonus-thumb img { transform: scale(1.05); }
 
 /* ---- La comunidad, ahora más abajo ---- */
 .hero--school { margin-top: 30px; }
+
+/* ---- El precio es letra chica, pero legible: #999 a 10.5px no se lee ---- */
+.btn-fine--precio {
+  font-size: 11.5px;
+  color: var(--color-gray);
+}
+
+/* ---- La promesa del bloque comunidad: una linea suelta, no parrafo ---- */
+.hero-promesa {
+  margin: 13px 20px 0;
+  font-family: var(--font-heading);
+  font-size: 15px;
+  font-style: italic;
+  line-height: 1.45;
+  color: var(--color-school-dark);
+}
 .hero--school .hero-img img { aspect-ratio: 1200 / 633; }
 
 /* ---- Aviso: la guía es para el aula ---- */
