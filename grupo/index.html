@@ -58,6 +58,17 @@
           </p>
         </div>
 
+        <div id="gWait" hidden>
+          <h2>Un momento…</h2>
+          <p class="card-sub">Te estamos sumando a tu grupo.</p>
+        </div>
+
+        <div id="gFail" hidden>
+          <h2>No pudimos sumarte</h2>
+          <p class="card-sub">Algo falló de nuestro lado. Escríbenos a <a class="g-back" href="mailto:tueducadoraamiga@gmail.com">tueducadoraamiga@gmail.com</a> y te sumamos a mano.</p>
+          <p class="lm-fine" style="margin-top:14px;"><a class="g-back" href="/">Volver a Tu Educadora Amiga</a></p>
+        </div>
+
         <div id="gErr" hidden>
           <h2>Abre este enlace desde el correo</h2>
           <p class="card-sub">Para elegir tu grupo, entra desde el enlace del correo de Tu Educadora Amiga. Si el problema sigue, escríbenos a <a class="g-back" href="mailto:tueducadoraamiga@gmail.com">tueducadoraamiga@gmail.com</a>.</p>
@@ -83,38 +94,42 @@
       var g = (params.get('g') || '').toLowerCase();
       var email = (params.get('e') || params.get('email') || '').trim();
       var done = document.getElementById('gDone');
-      var err = document.getElementById('gErr');
+      var err  = document.getElementById('gErr');
+      var wait = document.getElementById('gWait');
+      var fail = document.getElementById('gFail');
 
       var validGroup = (g === 'casa' || g === 'aula');
       var validEmail = /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email);
 
-      if (!validGroup || !validEmail) {
-        err.hidden = false;
-        return;
-      }
+      if (!validGroup || !validEmail) { err.hidden = false; return; }
 
-      // Agregar al grupo (POST directo, sin librería) — solo tag, NO dispara la guía
+      wait.hidden = false;
+
       var body = new URLSearchParams();
       body.append('fields[email]', email);
       body.append('ml-submit', '1');
       body.append('anticsrf', 'true');
-      try {
-        if (!(navigator.sendBeacon && navigator.sendBeacon(EP[g], body))) throw 0;
-      } catch (e) {
-        fetch(EP[g], { method: 'POST', mode: 'no-cors', body: body }).catch(function () {});
-      }
 
-      // Mensaje de confirmación
-      document.getElementById('gBadge').textContent = 'YA ESTÁS EN "' + LABEL[g].toUpperCase() + '"';
-      document.getElementById('gMsg').textContent = 'Vas a recibir el contenido pensado para quienes acompañan a la infancia ' + LABEL[g] + '. Cuando Dani lance algo para tu grupo, te va a llegar a ti.';
-
-      // Botón para sumarse también al otro grupo
-      var other = (g === 'casa') ? 'aula' : 'casa';
-      var btn = document.getElementById('gOther');
-      btn.textContent = '¿También acompañas ' + LABEL[other] + '? Súmate';
-      btn.href = '?g=' + other + '&e=' + encodeURIComponent(email);
-
-      done.hidden = false;
+      // El endpoint responde access-control-allow-origin:* -> se puede LEER la
+      // respuesta. Antes iba con sendBeacon + no-cors (disparar y olvidar) y la
+      // pagina decia "listo" aunque MailerLite no hubiera hecho nada.
+      fetch(EP[g], { method: 'POST', body: body })
+        .then(function (r) { return r.ok ? r.json() : Promise.reject(r.status); })
+        .then(function (d) {
+          if (!d || d.success !== true) return Promise.reject(d);
+          wait.hidden = true;
+          document.getElementById('gBadge').textContent = 'YA ESTÁS EN "' + LABEL[g].toUpperCase() + '"';
+          document.getElementById('gMsg').textContent = 'Vas a recibir el contenido pensado para quienes acompañan a la infancia ' + LABEL[g] + '. Cuando Dani lance algo para tu grupo, te va a llegar a ti.';
+          var other = (g === 'casa') ? 'aula' : 'casa';
+          var btn = document.getElementById('gOther');
+          btn.textContent = '¿También acompañas ' + LABEL[other] + '? Súmate';
+          btn.href = '?g=' + other + '&e=' + encodeURIComponent(email);
+          done.hidden = false;
+        })
+        .catch(function () {
+          wait.hidden = true;
+          fail.hidden = false;
+        });
     })();
   </script>
 
