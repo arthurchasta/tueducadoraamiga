@@ -179,45 +179,73 @@
       };
       var form = document.getElementById('lmForm');
       if (!form) return;
+      var btn = document.getElementById('lmBtn');
+      var err = document.getElementById('lmError');
+      var TXT_VALIDA = err.textContent;
+      var TXT_FALLO = 'No pudimos inscribirte. Inténtalo de nuevo o escríbenos a tueducadoraamiga@gmail.com';
+
+      // El endpoint responde access-control-allow-origin:* -> se puede LEER la
+      // respuesta. Antes iba con sendBeacon + no-cors (disparar y olvidar): la
+      // página decía "¡Listo!" aunque MailerLite no hubiera recibido nada.
       function post(action, name, email) {
         var body = new URLSearchParams();
         body.append('fields[name]', name);
         body.append('fields[email]', email);
         body.append('ml-submit', '1');
         body.append('anticsrf', 'true');
-        try {
-          if (navigator.sendBeacon && navigator.sendBeacon(action, body)) return;
-        } catch (e) {}
-        fetch(action, { method: 'POST', mode: 'no-cors', body: body }).catch(function () {});
+        return fetch(action, { method: 'POST', body: body })
+          .then(function (r) { return r.ok ? r.json() : Promise.reject(r.status); })
+          .then(function (d) { if (!d || d.success !== true) return Promise.reject(d); });
       }
+
+      var enviando = false;
       form.addEventListener('submit', function (e) {
         e.preventDefault();
+        if (enviando) return;
+
         var email = (document.getElementById('lmEmail').value || '').trim();
         var name = (document.getElementById('lmName').value || '').trim();
         var casa = document.getElementById('lmCasa').checked;
         var aula = document.getElementById('lmAula').checked;
         var okEmail = /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email);
         if (!okEmail || (!casa && !aula)) {
-          document.getElementById('lmError').hidden = false;
+          err.textContent = TXT_VALIDA;
+          err.hidden = false;
           return;
         }
-        document.getElementById('lmError').hidden = true;
-        if (casa) post(EP.casa, name, email);
-        if (aula) post(EP.aula, name, email);
-        // La guía sale SOLO por el form de aula (la automatización de MailerLite
-        // cuelga únicamente de ese form). Quien marca solo casa entra a la carta.
-        var soloCasa = casa && !aula;
-        document.getElementById('lmSuccessTxt').textContent = soloCasa
-          ? 'Ya estás suscrita a la carta de los miércoles.'
-          : 'Revisa tu correo, la guía ya va en camino.';
-        document.getElementById('lmSuccessFine').hidden = soloCasa;
-        form.hidden = true;
-        document.getElementById('lmSuccess').hidden = false;
+        err.hidden = true;
+
+        enviando = true;
+        var textoBtn = btn.textContent;
+        btn.disabled = true;
+        btn.textContent = 'Enviando…';
+
+        var tareas = [];
+        if (casa) tareas.push(post(EP.casa, name, email));
+        if (aula) tareas.push(post(EP.aula, name, email));
+
+        Promise.all(tareas).then(function () {
+          // La guía sale SOLO por el form de aula (la automatización de MailerLite
+          // cuelga únicamente de ese form). Quien marca solo casa entra a la carta.
+          var soloCasa = casa && !aula;
+          document.getElementById('lmSuccessTxt').textContent = soloCasa
+            ? 'Ya estás suscrita a la carta de los miércoles.'
+            : 'Revisa tu correo, la guía ya va en camino.';
+          document.getElementById('lmSuccessFine').hidden = soloCasa;
+          form.hidden = true;
+          document.getElementById('lmSuccess').hidden = false;
+        }).catch(function () {
+          enviando = false;
+          btn.disabled = false;
+          btn.textContent = textoBtn;
+          err.textContent = TXT_FALLO;
+          err.hidden = false;
+        });
       });
 
       /* El botón dice lo que la persona va a recibir de verdad */
-      var btn = document.getElementById('lmBtn');
       function sincronizarBoton() {
+        if (enviando) return;
         var soloCasa = document.getElementById('lmCasa').checked
                     && !document.getElementById('lmAula').checked;
         btn.textContent = soloCasa ? 'Quiero la carta' : 'Quiero la guía';
