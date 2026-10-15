@@ -90,9 +90,16 @@
         aula: "https://assets.mailerlite.com/jsonp/2268802/forms/195811603740886553/subscribe"
       };
       var LABEL = { casa: "en casa", aula: "en aula" };
-      var params = new URLSearchParams(location.search);
-      var g = (params.get('g') || '').toLowerCase();
-      var email = (params.get('e') || params.get('email') || '').trim();
+      // URLSearchParams decodifica "+" como ESPACIO, asi que un correo tipo
+      // nombre+algo@gmail.com llegaba partido y la pagina lo rechazaba.
+      // decodeURIComponent no aplica esa regla: hay que leer el parametro crudo.
+      function leerParam(nombre) {
+        var m = new RegExp('[?&]' + nombre + '=([^&#]*)').exec(location.search);
+        if (!m) return '';
+        try { return decodeURIComponent(m[1]); } catch (e) { return m[1]; }
+      }
+      var g = (leerParam('g') || '').toLowerCase();
+      var email = (leerParam('e') || leerParam('email') || '').trim();
       var done = document.getElementById('gDone');
       var err  = document.getElementById('gErr');
       var wait = document.getElementById('gWait');
