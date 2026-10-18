@@ -1358,3 +1358,11 @@ a.card--bonus:hover .bonus-thumb img { transform: scale(1.05); }
 /* ---- Página /vuelta (solo el lead magnet) ---- */
 .page--vuelta { padding-bottom: 34px; }
 .page--vuelta .lmh { margin-top: 2px; }
+
+/* Descarga inmediata: la guia se entrega en la pagina, no por correo */
+.lm-descarga {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  margin-top: 12px;
+}

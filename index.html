@@ -117,8 +117,9 @@
 
       <div class="lm-success" id="lmSuccess" hidden>
         <h4>¡Listo!</h4>
-        <p id="lmSuccessTxt">Revisa tu correo, la guía ya va en camino.</p>
-        <p class="lm-success-fine" id="lmSuccessFine">Si no la ves en unos minutos, busca en spam o promociones.</p>
+        <p id="lmSuccessTxt">Aquí está tu guía. También te la mando al correo.</p>
+        <a class="lm-submit lm-descarga" href="/guias/no-intervenir/No-Intervenir-Tambien-Es-Acompanar-Tu-Educadora-Amiga.pdf" download>Descargar la guía</a>
+        <p class="lm-success-fine" id="lmSuccessFine">Y cada miércoles te llega mi carta.</p>
       </div>
     </section>
 
@@ -265,13 +266,9 @@
         if (aula) tareas.push(post(EP.aula, name, email));
 
         Promise.all(tareas).then(function () {
-          // La guía sale SOLO por el form de aula (la automatización de MailerLite
-          // cuelga únicamente de ese form). Quien marca solo casa entra a la carta.
-          var soloCasa = casa && !aula;
-          document.getElementById('lmSuccessTxt').textContent = soloCasa
-            ? 'Ya estás suscrita a la carta de los miércoles.'
-            : 'Revisa tu correo, la guía ya va en camino.';
-          document.getElementById('lmSuccessFine').hidden = soloCasa;
+          // La guía se entrega AQUI, no por correo: el boton de descarga solo
+          // aparece despues de que MailerLite confirmo. Asi el correo ya quedo
+          // capturado y la entrega no depende de una automatizacion.
           form.hidden = true;
           document.getElementById('lmSuccess').hidden = false;
         }).catch(function () {
