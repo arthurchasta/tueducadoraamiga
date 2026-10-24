@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tu Educadora Amiga — Acompañar la infancia, en aula y en casa</title>
-  <meta name="description" content="Las comunidades de Dani Meniconi: una para quienes acompañan la niñez en aula, otra para quienes la acompañan en casa. Inspiradas en la filosofía Reggio Emilia.">
-  <meta property="og:title" content="Tu Educadora Amiga — Acompañar la infancia, en aula y en casa">
-  <meta property="og:description" content="Una comunidad para la sala y una para la casa. Inspiradas en la filosofía Reggio Emilia.">
+  <title>Tu Educadora Amiga — Acompañar la infancia en el aula</title>
+  <meta name="description" content="Masterclass gratuita: cómo y qué observar en tu aula. Sábado 31 de octubre. Dani Meniconi, inspirada en la filosofía Reggio Emilia.">
+  <meta property="og:title" content="Tu Educadora Amiga — Acompañar la infancia en el aula">
+  <meta property="og:description" content="Masterclass gratuita el sábado 31 de octubre: cómo y qué observar en tu aula.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://tueducadoraamiga.com">
   <meta property="og:image" content="https://tueducadoraamiga.com/img/cover_no_intervenir.jpg">
@@ -49,13 +49,6 @@
         <span class="menu-tag">USD $15 al mes</span>
       </a>
 
-      <a class="menu-item" href="https://www.skool.com/tu-educadora-amiga-en-casa-9599/about?utm_source=web&amp;utm_medium=menu&amp;utm_campaign=home" target="_blank" rel="noopener">
-        <span class="menu-txt">
-          <span class="menu-tit">Te acompaño a sostener la crianza en casa</span>
-          <span class="menu-sub">Tu Educadora Amiga en Casa, en Skool</span>
-        </span>
-        <span class="menu-tag">Gratis</span>
-      </a>
 
     </nav>
 
@@ -148,38 +141,6 @@
       <p class="btn-fine btn-fine--precio">USD $15 al mes. Cancelas cuando quieras.</p>
     </section>
 
-    <!-- ============ 3. LA COMUNIDAD DE CASA ============ -->
-    <!-- Skool aparte del de aula: distinto publico, distinta promesa, distinto precio.
-         Es el embudo hacia las mentorias con familias. -->
-    <section class="hero hero--casa" id="comunidad-casa">
-      <div class="hero-img">
-        <img src="img/tuea_en_casa_oct2026.jpg" alt="Tu Educadora Amiga en Casa — la autoestima y las emociones de tu hijo o hija, y tú cuidándote en el camino" loading="lazy">
-      </div>
-
-      <span class="chip">Para la casa</span>
-
-      <h2 class="hero-titulo">La infancia no se acelera.<br>Se honra.</h2>
-
-      <p class="hero-bajada">
-        Un lugar para ti, que acompañas a la niñez en casa. Pataletas, rabietas, límites,
-        miedos: todo lo que aparece en la crianza de 0 a 6 años.
-      </p>
-
-      <p class="hero-promesa hero-promesa--casa">Todos opinan. Acá te acompaño.</p>
-
-      <p class="hero-bajada">
-        Adentro: cómo ayudar a tu hijo o hija a confiar en sí mismo, acompañar la rabia
-        sin agotarte, poner límites sin culpa, y qué hacer cuando algo cambia (la
-        adaptación al centro, la llegada de un hermano). Y una comunidad de familias
-        que acompañan con presencia.
-      </p>
-
-      <a class="btn-cta" href="https://www.skool.com/tu-educadora-amiga-en-casa-9599/about?utm_source=web&amp;utm_medium=home&amp;utm_campaign=apertura" target="_blank" rel="noopener">
-        Entrar a la comunidad de familias
-      </a>
-      <p class="btn-fine btn-fine--precio">Entrar es gratis. Hay un plan Premium con un encuentro mensual en grupo pequeño conmigo.</p>
-    </section>
-
     <!-- ============ 4. QUIÉN TE ACOMPAÑA ============ -->
     <section class="bloque dani">
       <img class="dani-foto" src="img/foto_asesoria.jpg" alt="Dani Meniconi" loading="lazy">
@@ -258,86 +219,6 @@
     })();
   </script>
 
-  <script>
-    /* ---- Envío directo a MailerLite (soporta ambas casillas en un solo submit) ---- */
-    (function () {
-      var EP = {
-        casa: "https://assets.mailerlite.com/jsonp/2268802/forms/195354419716425011/subscribe",
-        aula: "https://assets.mailerlite.com/jsonp/2268802/forms/195354452339721842/subscribe"
-      };
-      var form = document.getElementById('lmForm');
-      if (!form) return;
-      var btn = document.getElementById('lmBtn');
-      var err = document.getElementById('lmError');
-      var TXT_VALIDA = err.textContent;
-      var TXT_FALLO = 'No pudimos inscribirte. Inténtalo de nuevo o escríbenos a tueducadoraamiga@gmail.com';
-
-      // El endpoint responde access-control-allow-origin:* -> se puede LEER la
-      // respuesta. Antes iba con sendBeacon + no-cors (disparar y olvidar): la
-      // página decía "¡Listo!" aunque MailerLite no hubiera recibido nada.
-      function post(action, name, email) {
-        var body = new URLSearchParams();
-        body.append('fields[name]', name);
-        body.append('fields[email]', email);
-        body.append('ml-submit', '1');
-        body.append('anticsrf', 'true');
-        return fetch(action, { method: 'POST', body: body })
-          .then(function (r) { return r.ok ? r.json() : Promise.reject(r.status); })
-          .then(function (d) { if (!d || d.success !== true) return Promise.reject(d); });
-      }
-
-      var enviando = false;
-      form.addEventListener('submit', function (e) {
-        e.preventDefault();
-        if (enviando) return;
-
-        var email = (document.getElementById('lmEmail').value || '').trim();
-        var name = (document.getElementById('lmName').value || '').trim();
-        var casa = document.getElementById('lmCasa').checked;
-        var aula = document.getElementById('lmAula').checked;
-        var okEmail = /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email);
-        if (!okEmail || (!casa && !aula)) {
-          err.textContent = TXT_VALIDA;
-          err.hidden = false;
-          return;
-        }
-        err.hidden = true;
-
-        enviando = true;
-        var textoBtn = btn.textContent;
-        btn.disabled = true;
-        btn.textContent = 'Enviando…';
-
-        var tareas = [];
-        if (casa) tareas.push(post(EP.casa, name, email));
-        if (aula) tareas.push(post(EP.aula, name, email));
-
-        Promise.all(tareas).then(function () {
-          // La guía se entrega AQUI, no por correo: el boton de descarga solo
-          // aparece despues de que MailerLite confirmo. Asi el correo ya quedo
-          // capturado y la entrega no depende de una automatizacion.
-          form.hidden = true;
-          document.getElementById('lmSuccess').hidden = false;
-        }).catch(function () {
-          enviando = false;
-          btn.disabled = false;
-          btn.textContent = textoBtn;
-          err.textContent = TXT_FALLO;
-          err.hidden = false;
-        });
-      });
-
-      /* El botón dice lo que la persona va a recibir de verdad */
-      function sincronizarBoton() {
-        if (enviando) return;
-        var soloCasa = document.getElementById('lmCasa').checked
-                    && !document.getElementById('lmAula').checked;
-        btn.textContent = soloCasa ? 'Quiero la carta' : 'Quiero la guía';
-      }
-      document.getElementById('lmCasa').addEventListener('change', sincronizarBoton);
-      document.getElementById('lmAula').addEventListener('change', sincronizarBoton);
-    })();
-  </script>
 
 </body>
 </html>
