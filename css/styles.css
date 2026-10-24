@@ -1388,4 +1388,9 @@ a.card--bonus:hover .bonus-thumb img { transform: scale(1.05); }
 .lmh--carta .chip { background: var(--color-gray); }
 
 /* YouTube: sale del sitio, por eso va ultimo y mas discreto */
-.menu-item--yt { background: var(--color-aula-chip); box-shadow: 0 3px 10px rgba(79,107,92,0.22); }
+.menu-item--yt { background: var(--color-casa-chip); box-shadow: 0 3px 10px rgba(181,82,76,0.25); }
+
+/* Un color por mundo: verde salvia = Atelier Reggio · sandia = canciones y cuentos */
+.menu-item--atelier { background: var(--color-aula-chip); box-shadow: 0 3px 10px rgba(79,107,92,0.26); }
+.btn-cta--atelier { background: var(--color-aula-chip); box-shadow: 0 6px 18px rgba(79,107,92,0.28); }
+.btn-cta--atelier:hover { background: var(--color-aula-dark); }
