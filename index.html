@@ -141,6 +141,39 @@
       <p class="btn-fine btn-fine--precio">USD $15 al mes. Cancelas cuando quieras.</p>
     </section>
 
+    <!-- ============ LA CARTA (permanente: no caduca con la masterclass) ============ -->
+    <!-- Form "Solo AULA" 195811603740886553 -> grupo EN AULA, nada mas.
+         La guia se entrega aqui mismo, no por correo. -->
+    <section class="lmh lmh--carta" id="carta">
+      <span class="chip">Mi carta de los miércoles</span>
+
+      <h2 class="hero-titulo">Reflexiones sobre la infancia, cada miércoles</h2>
+
+      <p class="hero-bajada">
+        Una carta a la semana sobre lo que veo en sala: lo que me hace pensar, lo que me
+        cuesta, lo que probamos y resultó. Sin recetas y sin tareas.
+      </p>
+
+      <p class="hero-bajada">
+        Al suscribirte te llevas <strong>Observar antes de intervenir</strong>, una guía de
+        siete páginas sobre lo que pasa cuando ayudamos antes de que nos pidan ayuda.
+      </p>
+
+      <form class="lm-form" id="ctForm" novalidate>
+        <input class="lm-input" type="text" id="ctName" name="name" placeholder="Nombre" autocomplete="given-name">
+        <input class="lm-input" type="email" id="ctEmail" name="email" placeholder="Email" autocomplete="email" required>
+        <button type="submit" class="lm-submit" id="ctBtn">Quiero la carta y la guía</button>
+        <p class="lm-error" id="ctError" hidden>Escribe tu nombre y un email válido.</p>
+        <p class="lm-fine">La guía se descarga al tiro. Te puedes dar de baja cuando quieras.</p>
+      </form>
+
+      <div class="lm-success" id="ctSuccess" hidden>
+        <h4>¡Listo!</h4>
+        <p>Aquí está tu guía. Y nos leemos el miércoles.</p>
+        <a class="lm-submit lm-descarga" href="/guias/no-intervenir/No-Intervenir-Tambien-Es-Acompanar-Tu-Educadora-Amiga.pdf" download>Descargar la guía</a>
+      </div>
+    </section>
+
     <!-- ============ 4. QUIÉN TE ACOMPAÑA ============ -->
     <section class="bloque dani">
       <img class="dani-foto" src="img/foto_asesoria.jpg" alt="Dani Meniconi" loading="lazy">
@@ -219,6 +252,48 @@
     })();
   </script>
 
+
+  <script>
+    /* ---- La carta: un solo formulario (Solo AULA), guia al instante ---- */
+    (function () {
+      var EP = "https://assets.mailerlite.com/jsonp/2268802/forms/195811603740886553/subscribe";
+      var form = document.getElementById('ctForm');
+      if (!form) return;
+      var btn = document.getElementById('ctBtn');
+      var err = document.getElementById('ctError');
+      var TXT = err.textContent;
+      var enviando = false;
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        if (enviando) return;
+        var name = (document.getElementById('ctName').value || '').trim();
+        var email = (document.getElementById('ctEmail').value || '').trim();
+        if (!name || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
+          err.textContent = TXT; err.hidden = false; return;
+        }
+        err.hidden = true; enviando = true;
+        var t = btn.textContent;
+        btn.disabled = true; btn.textContent = 'Enviando…';
+        var body = new URLSearchParams();
+        body.append('fields[name]', name);
+        body.append('fields[email]', email);
+        body.append('ml-submit', '1');
+        body.append('anticsrf', 'true');
+        fetch(EP, { method: 'POST', body: body })
+          .then(function (r) { return r.ok ? r.json() : Promise.reject(r.status); })
+          .then(function (d) {
+            if (!d || d.success !== true) return Promise.reject(d);
+            form.hidden = true;
+            document.getElementById('ctSuccess').hidden = false;
+          })
+          .catch(function () {
+            enviando = false; btn.disabled = false; btn.textContent = t;
+            err.textContent = 'No pudimos inscribirte. Inténtalo de nuevo o escríbenos a tueducadoraamiga@gmail.com';
+            err.hidden = false;
+          });
+      });
+    })();
+  </script>
 
 </body>
 </html>

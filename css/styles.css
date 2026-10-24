@@ -1382,3 +1382,7 @@ a.card--bonus:hover .bonus-thumb img { transform: scale(1.05); }
 .mc-horas ul { list-style: none; margin: 8px 0 0; padding: 0; }
 .mc-horas li { display: flex; justify-content: space-between; gap: 10px; padding: 3px 0; border-bottom: 1px solid var(--color-border); }
 .mc-horas li b { color: var(--color-dark); }
+
+/* ---- La carta: mas sobria que la masterclass, no compite ---- */
+.lmh--carta { border-color: var(--color-border); box-shadow: var(--shadow-card); margin-top: 30px; }
+.lmh--carta .chip { background: var(--color-gray); }
