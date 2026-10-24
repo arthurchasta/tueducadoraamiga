@@ -1366,3 +1366,19 @@ a.card--bonus:hover .bonus-thumb img { transform: scale(1.05); }
   text-decoration: none;
   margin-top: 12px;
 }
+
+/* ---- Masterclass (bloque temporal, con su propio acento) ---- */
+.lmh--mc { border-color: var(--color-aula); box-shadow: 0 8px 28px rgba(92,122,106,0.16); }
+.lmh--mc .chip { background: var(--color-aula-chip); }
+.mc-cuando {
+  margin: 10px 20px 0;
+  font-family: var(--font-heading);
+  font-size: 15px;
+  color: var(--color-aula-dark);
+}
+.menu-item--mc { background: var(--color-aula-chip); box-shadow: 0 3px 10px rgba(79,107,92,0.28); }
+.mc-horas { margin: 12px 20px 0; font-size: 12px; color: var(--color-gray); }
+.mc-horas summary { cursor: pointer; color: var(--color-aula-dark); font-weight: 600; }
+.mc-horas ul { list-style: none; margin: 8px 0 0; padding: 0; }
+.mc-horas li { display: flex; justify-content: space-between; gap: 10px; padding: 3px 0; border-bottom: 1px solid var(--color-border); }
+.mc-horas li b { color: var(--color-dark); }

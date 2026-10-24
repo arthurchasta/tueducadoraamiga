@@ -33,18 +33,10 @@
          Los bloques de abajo siguen haciendo el trabajo de convencer. -->
     <nav class="menu" aria-label="Qué hay en Tu Educadora Amiga">
 
-      <a class="menu-item" href="#guia">
+      <a class="menu-item menu-item--mc" href="#masterclass">
         <span class="menu-txt">
-          <span class="menu-tit">Mi carta de reflexión sobre la infancia</span>
-          <span class="menu-sub">Cada miércoles, en tu correo</span>
-        </span>
-        <span class="menu-tag">Gratis</span>
-      </a>
-
-      <a class="menu-item" href="#guia">
-        <span class="menu-txt">
-          <span class="menu-tit">Guía: Observar antes de intervenir</span>
-          <span class="menu-sub">Para el aula y para la casa</span>
+          <span class="menu-tit">Masterclass: Cómo y qué observar en tu aula</span>
+          <span class="menu-sub">Sábado 31 de octubre, 11:00 Chile · con grabación</span>
         </span>
         <span class="menu-tag">Gratis</span>
       </a>
@@ -68,60 +60,63 @@
     </nav>
 
     <!-- ============ 1. EL LEAD MAGNET (+ suscripción a la carta) ============ -->
-    <section class="lmh" id="guia">
-      <span class="chip">Guía gratuita</span>
+    <!-- ============ MASTERCLASS 31 OCT (temporal: baja despues del evento) ============ -->
+    <!-- El form manda a DOS formularios de MailerLite a la vez:
+         202223250154981021 -> grupo "Masterclass Observación 31 Oct" (dispara el Zoom)
+         202217448452130686 -> grupo "EN AULA" (las cartas semanales van a ese grupo)
+         Asi funciona sin tocar nada en MailerLite. -->
+    <section class="lmh lmh--mc" id="masterclass">
+      <span class="chip">Masterclass gratuita · solo aula</span>
 
-      <img class="lmh-cover" src="img/cover_no_intervenir.jpg" alt="La infancia no necesita que resolvamos todo por ella — guía de Tu Educadora Amiga" fetchpriority="high">
+      <h2 class="hero-titulo">Cómo y qué observar en tu aula</h2>
 
-      <h2 class="hero-titulo">La infancia no necesita que resolvamos todo por ella</h2>
+      <p class="mc-cuando"><strong>Sábado 31 de octubre</strong> · 11:00 de Chile</p>
 
       <p class="hero-bajada">
-        Ayudamos antes de que nos pidan ayuda, con la mejor intención. Y esa demora
-        que queremos evitar suele ser justo el momento en que están pensando. Esta
-        guía es para mirar un poquito más antes de actuar, en el aula o en casa.
+        Observar con presencia y escucha atenta es el paso que sostiene todo lo demás.
+        Sin eso, el registro es muy difícil, y la documentación más todavía.
       </p>
 
-      <ul class="trae">
-        <li>Qué escucha la infancia cuando resolvemos por ella</li>
-        <li>El puzzle y los zapatos: dos escenas de todos los días</li>
-        <li>Qué decir cuando de verdad no puedes esperar</li>
-        <li>Seis preguntas para hacerte antes de intervenir</li>
-      </ul>
+      <p class="hero-bajada">
+        Vengo llegando de Reggio Emilia, y lo que más me impactó de los centros que
+        recorrí fueron sus registros y documentaciones: qué eligieron capturar, qué
+        decidieron mostrar. Desde ahí se entiende cómo observaban, y desde ahí nace
+        todo lo demás.
+      </p>
 
-      <!-- Form custom: POST directo a MailerLite (casa / aula), sin librería.
-           Mismos endpoints que /vuelta/. OJO: el grupo que dispara la guía cuelga
-           SOLO del form de AULA. Marcar solo "en casa" suscribe a la carta y nada más. -->
-      <form class="lm-form" id="lmForm" novalidate>
-        <input class="lm-input" type="text" id="lmName" name="name" placeholder="Nombre" autocomplete="given-name">
-        <input class="lm-input" type="email" id="lmEmail" name="email" placeholder="Email" autocomplete="email" required>
-        <div class="lm-check">
-          <p class="lm-check-q">¿Cómo acompañas a la infancia? <span class="lm-hint">(puedes marcar las dos)</span></p>
-          <label class="lm-row">
-            <input type="checkbox" id="lmCasa">
-            <span class="lm-box" aria-hidden="true"></span>
-            <span class="lm-txt">Acompaño a la infancia <strong>en casa</strong></span>
-          </label>
-          <label class="lm-row">
-            <input type="checkbox" id="lmAula">
-            <span class="lm-box" aria-hidden="true"></span>
-            <span class="lm-txt">Acompaño a la infancia <strong>en aula</strong></span>
-          </label>
-        </div>
-        <button type="submit" class="lm-submit" id="lmBtn">Quiero la guía</button>
-        <p class="lm-error" id="lmError" hidden>Escribe tu email y marca al menos una opción.</p>
+      <details class="mc-horas">
+        <summary>¿A qué hora es en tu país?</summary>
+        <ul>
+          <li><span>Chile, Argentina, Uruguay, Brasil</span><b>11:00</b></li>
+          <li><span>Colombia, Perú, Ecuador</span><b>09:00</b></li>
+          <li><span>México</span><b>08:00</b></li>
+          <li><span>España</span><b>15:00</b></li>
+        </ul>
+      </details>
+
+      <form class="lm-form" id="mcForm" novalidate>
+        <input class="lm-input" type="text" id="mcName" name="name" placeholder="Nombre" autocomplete="given-name">
+        <input class="lm-input" type="email" id="mcEmail" name="email" placeholder="Email" autocomplete="email" required>
+        <button type="submit" class="lm-submit" id="mcBtn">Quiero reservar mi lugar</button>
+        <p class="lm-error" id="mcError" hidden>Escribe tu nombre y un email válido.</p>
         <p class="lm-fine">
-          Te llega al correo en un minuto. Al inscribirte te suscribes a mi carta de
-          los miércoles, te puedes dar de baja cuando quieras.
+          Cupos limitados. <strong>Si no puedes a esa hora, te mando la grabación.</strong>
+          Te llega el link de Zoom al correo, y desde entonces también mi carta de los miércoles.
         </p>
       </form>
 
-      <div class="lm-success" id="lmSuccess" hidden>
-        <h4>¡Listo!</h4>
-        <p id="lmSuccessTxt">Aquí está tu guía. También te la mando al correo.</p>
-        <a class="lm-submit lm-descarga" href="/guias/no-intervenir/No-Intervenir-Tambien-Es-Acompanar-Tu-Educadora-Amiga.pdf" download>Descargar la guía</a>
-        <p class="lm-success-fine" id="lmSuccessFine">Y cada miércoles te llega mi carta.</p>
+      <div class="lm-success" id="mcSuccess" hidden>
+        <h4>¡Tu lugar está reservado!</h4>
+        <p>Te mandé el link de Zoom al correo. Si no lo ves en unos minutos, busca en spam o promociones.</p>
+        <p class="lm-success-fine">Nos vemos el sábado 31.</p>
       </div>
     </section>
+
+    <!-- GUIA PAUSADA el 24/10 hasta despues de la masterclass del 31.
+         El bloque entero esta guardado en _pausado/guia-lead-magnet.html
+         (no se comenta aqui porque tiene comentarios adentro y se rompe).
+         Para volver: pegarlo aqui y devolver su boton al menu. -->
+
 
     <!-- ============ 2. LA COMUNIDAD DE AULA ============ -->
     <section class="hero hero--school" id="comunidad">
@@ -210,6 +205,58 @@
     </footer>
 
   </main>
+
+  <script>
+    /* ---- Masterclass 31 oct: dos formularios en un solo envio ---- */
+    (function () {
+      var EP = [
+        "https://assets.mailerlite.com/jsonp/2268802/forms/202223250154981021/subscribe", // -> Zoom
+        "https://assets.mailerlite.com/jsonp/2268802/forms/202217448452130686/subscribe"  // -> EN AULA (cartas)
+      ];
+      var form = document.getElementById('mcForm');
+      if (!form) return;
+      var btn = document.getElementById('mcBtn');
+      var err = document.getElementById('mcError');
+      var TXT = err.textContent;
+
+      function post(url, name, email) {
+        var body = new URLSearchParams();
+        body.append('fields[name]', name);
+        body.append('fields[email]', email);
+        body.append('ml-submit', '1');
+        body.append('anticsrf', 'true');
+        return fetch(url, { method: 'POST', body: body })
+          .then(function (r) { return r.ok ? r.json() : Promise.reject(r.status); })
+          .then(function (d) { if (!d || d.success !== true) return Promise.reject(d); });
+      }
+
+      var enviando = false;
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        if (enviando) return;
+        var name = (document.getElementById('mcName').value || '').trim();
+        var email = (document.getElementById('mcEmail').value || '').trim();
+        if (!name || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
+          err.textContent = TXT; err.hidden = false; return;
+        }
+        err.hidden = true;
+        enviando = true;
+        var t = btn.textContent;
+        btn.disabled = true; btn.textContent = 'Reservando…';
+        // El primero es el que manda el Zoom: si ese falla, no decimos que esta listo.
+        post(EP[0], name, email).then(function () {
+          post(EP[1], name, email).catch(function () {});
+          form.hidden = true;
+          document.getElementById('mcSuccess').hidden = false;
+        }).catch(function () {
+          enviando = false;
+          btn.disabled = false; btn.textContent = t;
+          err.textContent = 'No pudimos reservar tu lugar. Inténtalo de nuevo o escríbenos a tueducadoraamiga@gmail.com';
+          err.hidden = false;
+        });
+      });
+    })();
+  </script>
 
   <script>
     /* ---- Envío directo a MailerLite (soporta ambas casillas en un solo submit) ---- */
