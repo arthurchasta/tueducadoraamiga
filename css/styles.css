@@ -1386,3 +1386,6 @@ a.card--bonus:hover .bonus-thumb img { transform: scale(1.05); }
 /* ---- La carta: mas sobria que la masterclass, no compite ---- */
 .lmh--carta { border-color: var(--color-border); box-shadow: var(--shadow-card); margin-top: 30px; }
 .lmh--carta .chip { background: var(--color-gray); }
+
+/* YouTube: sale del sitio, por eso va ultimo y mas discreto */
+.menu-item--yt { background: var(--color-aula-chip); box-shadow: 0 3px 10px rgba(79,107,92,0.22); }
