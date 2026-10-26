@@ -1,0 +1,51 @@
+<!-- ============ MASTERCLASS 31 OCT (temporal: baja despues del evento) ============ -->
+    <!-- El form manda a DOS formularios de MailerLite a la vez:
+         202223250154981021 -> grupo "Masterclass Observación 31 Oct" (dispara el Zoom)
+         202217448452130686 -> grupo "EN AULA" (las cartas semanales van a ese grupo)
+         Asi funciona sin tocar nada en MailerLite. -->
+    <section class="lmh lmh--mc" id="masterclass">
+      <span class="chip">Masterclass gratuita · solo aula</span>
+
+      <h2 class="hero-titulo">Cómo y qué observar en tu aula</h2>
+
+      <p class="mc-cuando"><strong>Sábado 31 de octubre</strong> · 11:00 de Chile</p>
+
+      <p class="hero-bajada">
+        Observar con una intención y escucha atenta es el paso que sostiene todo lo demás.
+        Sin eso, el registro es muy difícil, y la documentación más todavía.
+      </p>
+
+      <p class="hero-bajada">
+        Vengo llegando de Reggio Emilia, y lo que más me impactó de los centros que
+        recorrí fueron sus registros y documentaciones: qué eligieron capturar, qué
+        decidieron mostrar. Desde ahí se entiende cómo observaban, y desde ahí nace
+        todo lo demás.
+      </p>
+
+      <details class="mc-horas">
+        <summary>¿A qué hora es en tu país?</summary>
+        <ul>
+          <li><span>Chile, Argentina, Uruguay, Brasil</span><b>11:00</b></li>
+          <li><span>Colombia, Perú, Ecuador</span><b>09:00</b></li>
+          <li><span>México</span><b>08:00</b></li>
+          <li><span>España</span><b>15:00</b></li>
+        </ul>
+      </details>
+
+      <form class="lm-form" id="mcForm" novalidate>
+        <input class="lm-input" type="text" id="mcName" name="name" placeholder="Nombre" autocomplete="given-name">
+        <input class="lm-input" type="email" id="mcEmail" name="email" placeholder="Email" autocomplete="email" required>
+        <button type="submit" class="lm-submit" id="mcBtn">Quiero reservar mi lugar</button>
+        <p class="lm-error" id="mcError" hidden>Escribe tu nombre y un email válido.</p>
+        <p class="lm-fine">
+          Cupos limitados. <strong>Si no puedes a esa hora, te mando la grabación.</strong>
+          Te llega el link de Zoom al correo, y desde entonces también mi carta semanal.
+        </p>
+      </form>
+
+      <div class="lm-success" id="mcSuccess" hidden>
+        <h4>¡Tu lugar está reservado!</h4>
+        <p>Te mandé el link de Zoom al correo. Si no lo ves en unos minutos, busca en spam o promociones.</p>
+        <p class="lm-success-fine">Nos vemos el sábado 31.</p>
+      </div>
+    </section>

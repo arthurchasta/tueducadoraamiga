@@ -1392,3 +1392,8 @@ a.card--bonus:hover .bonus-thumb img { transform: scale(1.05); }
 .menu-item--atelier { background: var(--color-aula-chip); box-shadow: 0 3px 10px rgba(79,107,92,0.26); }
 .btn-cta--atelier { background: var(--color-aula-chip); box-shadow: 0 6px 18px rgba(79,107,92,0.28); }
 .btn-cta--atelier:hover { background: var(--color-aula-dark); }
+
+/* Masterclass agotada: sobrio, no celebra ni vende */
+.lmh--agotada { border-color: var(--color-border); box-shadow: var(--shadow-card); }
+.lmh--agotada .chip { background: var(--color-gray); }
+.menu-item--mc { background: var(--color-gray); box-shadow: 0 3px 10px rgba(107,101,96,0.22); }
