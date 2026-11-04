@@ -55,7 +55,6 @@
           </div>
           <h2 id="gTitle">¡Listo! Ya estás en el grupo.</h2>
           <p class="card-sub" id="gMsg"></p>
-          <a class="lm-submit g-btn" id="gOther" href="#"></a>
           <p class="lm-fine" style="margin-top:14px;">
             <a class="g-back" href="/">Volver a Tu Educadora Amiga</a>
           </p>
@@ -69,6 +68,12 @@
         <div id="gFail" hidden>
           <h2>No pudimos sumarte</h2>
           <p class="card-sub">Algo falló de nuestro lado. Escríbenos a <a class="g-back" href="mailto:tueducadoraamiga@gmail.com">tueducadoraamiga@gmail.com</a> y te sumamos a mano.</p>
+          <p class="lm-fine" style="margin-top:14px;"><a class="g-back" href="/">Volver a Tu Educadora Amiga</a></p>
+        </div>
+
+        <div id="gCerrado" hidden>
+          <h2>Las cartas para familias están cerradas por ahora</h2>
+          <p class="card-sub">Gracias por tu interés. Por ahora escribo solo para quienes acompañan a la infancia en el aula.</p>
           <p class="lm-fine" style="margin-top:14px;"><a class="g-back" href="/">Volver a Tu Educadora Amiga</a></p>
         </div>
 
@@ -89,10 +94,10 @@
   <script>
     (function () {
       var EP = {
-        casa: "https://assets.mailerlite.com/jsonp/2268802/forms/195811428292101865/subscribe",
         aula: "https://assets.mailerlite.com/jsonp/2268802/forms/195811603740886553/subscribe"
       };
-      var LABEL = { casa: "en casa", aula: "en aula" };
+      // Desde nov 2026 solo se suma gente a AULA; las cartas para familias estan cerradas.
+      var LABEL = { aula: "en aula" };
       // URLSearchParams decodifica "+" como ESPACIO, asi que un correo tipo
       // nombre+algo@gmail.com llegaba partido y la pagina lo rechazaba.
       // decodeURIComponent no aplica esa regla: hay que leer el parametro crudo.
@@ -108,7 +113,8 @@
       var wait = document.getElementById('gWait');
       var fail = document.getElementById('gFail');
 
-      var validGroup = (g === 'casa' || g === 'aula');
+      if (g === 'casa') { document.getElementById('gCerrado').hidden = false; return; }
+      var validGroup = (g === 'aula');
       var validEmail = /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email);
 
       if (!validGroup || !validEmail) { err.hidden = false; return; }
@@ -130,10 +136,6 @@
           wait.hidden = true;
           document.getElementById('gBadge').textContent = 'YA ESTÁS EN "' + LABEL[g].toUpperCase() + '"';
           document.getElementById('gMsg').textContent = 'Vas a recibir el contenido pensado para quienes acompañan a la infancia ' + LABEL[g] + '. Cuando Dani lance algo para tu grupo, te va a llegar a ti.';
-          var other = (g === 'casa') ? 'aula' : 'casa';
-          var btn = document.getElementById('gOther');
-          btn.textContent = '¿También acompañas ' + LABEL[other] + '? Súmate';
-          btn.href = '?g=' + other + '&e=' + encodeURIComponent(email);
           done.hidden = false;
         })
         .catch(function () {

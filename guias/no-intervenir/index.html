@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>La infancia no necesita que resolvamos todo por ella — Guía gratuita | Tu Educadora Amiga</title>
-  <meta name="description" content="Guía gratuita de Dani Meniconi: qué escucha la infancia cuando resolvemos por ella, qué decir cuando no puedes esperar y seis preguntas para hacerte antes de intervenir. Para el aula y para la casa.">
+  <meta name="description" content="Guía gratuita de Dani Meniconi: qué escucha la infancia cuando resolvemos por ella, qué decir cuando no puedes esperar y seis preguntas para hacerte antes de intervenir. Para el aula.">
   <meta property="og:title" content="La infancia no necesita que resolvamos todo por ella">
   <meta property="og:description" content="No intervenir también es acompañar. Guía gratuita para mirar un poquito más antes de actuar.">
   <meta property="og:type" content="website">
@@ -45,7 +45,7 @@
       <p class="hero-bajada">
         Ayudamos antes de que nos pidan ayuda, con la mejor intención. Y esa demora
         que queremos evitar suele ser justo el momento en que están pensando. Esta
-        guía es para mirar un poquito más antes de actuar, en el aula o en casa.
+        guía es para mirar un poquito más antes de actuar en el aula.
       </p>
 
       <ul class="trae">
@@ -55,30 +55,17 @@
         <li>Seis preguntas para hacerte antes de intervenir</li>
       </ul>
 
-      <!-- Form custom: POST directo a MailerLite (casa / aula), sin librería.
-           OJO: el grupo que dispara la guía cuelga SOLO del form de AULA.
-           Marcar solo "en casa" suscribe a la carta y no manda la guía. -->
+      <!-- Form custom: POST directo a MailerLite, sin librería.
+           Solo AULA desde nov 2026: las cartas para familias (en casa) estan cerradas.
+           El grupo que dispara la guía cuelga del form de AULA. -->
       <form class="lm-form" id="lmForm" novalidate>
         <input class="lm-input" type="text" id="lmName" name="name" placeholder="Nombre" autocomplete="given-name">
         <input class="lm-input" type="email" id="lmEmail" name="email" placeholder="Email" autocomplete="email" required>
-        <div class="lm-check">
-          <p class="lm-check-q">¿Cómo acompañas a la infancia? <span class="lm-hint">(puedes marcar las dos)</span></p>
-          <label class="lm-row">
-            <input type="checkbox" id="lmCasa">
-            <span class="lm-box" aria-hidden="true"></span>
-            <span class="lm-txt">Acompaño a la infancia <strong>en casa</strong></span>
-          </label>
-          <label class="lm-row">
-            <input type="checkbox" id="lmAula">
-            <span class="lm-box" aria-hidden="true"></span>
-            <span class="lm-txt">Acompaño a la infancia <strong>en aula</strong></span>
-          </label>
-        </div>
         <button type="submit" class="lm-submit" id="lmBtn">Quiero la guía</button>
-        <p class="lm-error" id="lmError" hidden>Escribe tu email y marca al menos una opción.</p>
+        <p class="lm-error" id="lmError" hidden>Escribe un email válido.</p>
         <p class="lm-fine">
-          Te llega al correo en un minuto. Al inscribirte te suscribes a mi carta de
-          semanal, te puedes dar de baja cuando quieras.
+          Se descarga al instante. Al inscribirte te suscribes a mi carta
+          semanal; te puedes dar de baja cuando quieras.
         </p>
       </form>
 
@@ -106,7 +93,6 @@
     /* ---- Envío directo a MailerLite (soporta ambas casillas en un solo submit) ---- */
     (function () {
       var EP = {
-        casa: "https://assets.mailerlite.com/jsonp/2268802/forms/195354419716425011/subscribe",
         aula: "https://assets.mailerlite.com/jsonp/2268802/forms/195354452339721842/subscribe"
       };
       var form = document.getElementById('lmForm');
@@ -137,10 +123,8 @@
 
         var email = (document.getElementById('lmEmail').value || '').trim();
         var name = (document.getElementById('lmName').value || '').trim();
-        var casa = document.getElementById('lmCasa').checked;
-        var aula = document.getElementById('lmAula').checked;
         var okEmail = /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email);
-        if (!okEmail || (!casa && !aula)) {
+        if (!okEmail) {
           err.textContent = TXT_VALIDA;
           err.hidden = false;
           return;
@@ -152,11 +136,7 @@
         btn.disabled = true;
         btn.textContent = 'Enviando…';
 
-        var tareas = [];
-        if (casa) tareas.push(post(EP.casa, name, email));
-        if (aula) tareas.push(post(EP.aula, name, email));
-
-        Promise.all(tareas).then(function () {
+        post(EP.aula, name, email).then(function () {
           // La guía se entrega AQUI, no por correo: el boton de descarga solo
           // aparece despues de que MailerLite confirmo. Asi el correo ya quedo
           // capturado y la entrega no depende de una automatizacion.
@@ -170,16 +150,6 @@
           err.hidden = false;
         });
       });
-
-      /* El botón dice lo que la persona va a recibir de verdad */
-      function sincronizarBoton() {
-        if (enviando) return;
-        var soloCasa = document.getElementById('lmCasa').checked
-                    && !document.getElementById('lmAula').checked;
-        btn.textContent = soloCasa ? 'Quiero la carta' : 'Quiero la guía';
-      }
-      document.getElementById('lmCasa').addEventListener('change', sincronizarBoton);
-      document.getElementById('lmAula').addEventListener('change', sincronizarBoton);
     })();
   </script>
 
