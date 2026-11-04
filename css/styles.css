@@ -1483,3 +1483,6 @@ a.card--bonus:hover .bonus-thumb img { transform: scale(1.05); }
 .lmh--agotada { border-color: var(--color-border); box-shadow: var(--shadow-card); }
 .lmh--agotada .chip { background: var(--color-gray); }
 .menu-item--mc { background: var(--color-gray); box-shadow: 0 3px 10px rgba(107,101,96,0.22); }
+
+/* Para quien es el formulario (solo aula) */
+.lm-para-quien { margin: 0 0 10px; text-align: center; font-size: .9rem; font-weight: 600; color: var(--color-gray); }
