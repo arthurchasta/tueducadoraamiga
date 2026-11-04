@@ -1421,7 +1421,11 @@ a.card--bonus:hover .bonus-thumb img { transform: scale(1.05); }
 .marca--pajaro { width: 330px; right: 6px; top: 30px; transform: rotate(6deg); }
 .numeros-fila { display: block; width: 78%; max-width: 380px; height: auto; margin: 22px auto 14px; opacity: .3; transform: rotate(-3deg); }
 .numeros-fila--abajo { margin: 14px auto 0; transform: rotate(2deg); }
-.lockup-deco { margin-left: auto; width: 150px; height: auto; margin-right: -8px; }
+.lockup-deco { margin: 0 -8px 0 auto; }
+.lockup-deco img { display: block; width: 150px; height: auto; margin-left: auto; }
+.lockup-deco figcaption { margin-top: 4px; font-family: 'Lora', serif; font-style: italic; font-size: .64rem; line-height: 1.35; color: var(--color-gray); text-align: right; }
+.lockup-deco q { white-space: nowrap; quotes: '“' '”'; }
+.lockup-deco figcaption span { display: block; margin-top: 2px; font-style: normal; font-weight: 600; }
 .mc5-rapido { margin: 14px 20px 0; text-align: center; font-size: .95rem; }
 .mc5-btn-arriba { margin-top: 10px; margin-bottom: 22px; }
 .testimonios { margin: 24px 20px 0; text-align: left; }
