@@ -1404,8 +1404,60 @@ a.card--bonus:hover .bonus-thumb img { transform: scale(1.05); }
   border: 1px solid var(--color-border);
   line-height: 1.5;
 }
+.mc5-doc { margin: 16px 20px 6px; }
+.mc5-doc img { display: block; width: 100%; height: auto; border-radius: 12px; }
+.mc5-doc figcaption {
+  margin-top: 8px;
+  font-family: 'Lora', serif;
+  font-style: italic;
+  font-size: .92rem;
+  color: var(--color-gray);
+  text-align: center;
+}
+/* Obras de niños/as como marca de agua, detrás del texto */
+.hero--school, .lmh--carta { position: relative; }
+.hero--school > *:not(.marca), .lmh--carta > *:not(.marca) { position: relative; z-index: 1; }
+.marca { position: absolute; z-index: 0; opacity: .14; pointer-events: none; height: auto; }
+.marca--pajaro { width: 330px; right: 6px; top: 30px; transform: rotate(6deg); }
+.numeros-fila { display: block; width: 78%; max-width: 380px; height: auto; margin: 22px auto 14px; opacity: .3; transform: rotate(-3deg); }
+.numeros-fila--abajo { margin: 14px auto 0; transform: rotate(2deg); }
+.lockup-deco { margin-left: auto; width: 150px; height: auto; margin-right: -8px; }
+.mc5-rapido { margin: 14px 20px 0; text-align: center; font-size: .95rem; }
+.mc5-btn-arriba { margin-top: 10px; margin-bottom: 22px; }
+.mc5-para {
+  margin: 20px 20px 0;
+  padding: 16px 18px;
+  border-radius: 12px;
+  background: var(--color-cream);
+  text-align: left;
+}
+.mc5-para-tit { font-weight: 700; margin: 0 0 6px; }
+.mc5-para-tit--no { margin-top: 14px; color: var(--color-gray); }
+.mc5-para ul { margin: 0; padding-left: 20px; line-height: 1.55; }
+.mc5-para li { margin-bottom: 4px; }
+.mc5-incluye {
+  list-style: none;
+  margin: 18px auto 0;
+  padding: 0 20px;
+  max-width: 420px;
+  text-align: left;
+  line-height: 1.55;
+}
+.mc5-incluye li { padding-left: 26px; position: relative; margin-bottom: 6px; }
+.mc5-incluye li::before { content: "✓"; position: absolute; left: 4px; color: var(--color-coral); font-weight: 700; }
+.mc5-confianza {
+  margin: 12px auto 0;
+  padding: 0 20px;
+  max-width: 440px;
+  font-size: .88rem;
+  font-style: italic;
+  color: var(--color-gray);
+  text-align: center;
+}
 .mc5-husos {
   margin: 14px auto 0;
+  padding: 0 24px;
+  text-align: center;
   max-width: 480px;
   font-size: .84rem;
   line-height: 1.6;
