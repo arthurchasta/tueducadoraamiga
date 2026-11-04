@@ -1424,6 +1424,17 @@ a.card--bonus:hover .bonus-thumb img { transform: scale(1.05); }
 .lockup-deco { margin-left: auto; width: 150px; height: auto; margin-right: -8px; }
 .mc5-rapido { margin: 14px 20px 0; text-align: center; font-size: .95rem; }
 .mc5-btn-arriba { margin-top: 10px; margin-bottom: 22px; }
+.testimonios { margin: 24px 20px 0; text-align: left; }
+.test-tit { font-weight: 700; text-align: center; margin: 0 0 12px; }
+.testimonios blockquote {
+  margin: 0 0 12px;
+  padding: 14px 16px;
+  border-left: 3px solid var(--color-aula-chip);
+  border-radius: 0 12px 12px 0;
+  background: var(--color-cream);
+}
+.testimonios blockquote p { margin: 0; font-family: 'Lora', serif; font-style: italic; font-size: .95rem; line-height: 1.55; }
+.testimonios cite { display: block; margin-top: 6px; font-style: normal; font-size: .85rem; font-weight: 600; color: var(--color-gray); }
 .mc5-para {
   margin: 20px 20px 0;
   padding: 16px 18px;
