@@ -1495,3 +1495,15 @@ a.card--bonus:hover .bonus-thumb img { transform: scale(1.05); }
 .dani-fila p { font-size: 12.5px; line-height: 1.6; color: var(--color-gray); margin: 0; }
 .dani-mosaico { width: 82px; flex-shrink: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 3px; }
 .dani-mosaico img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 8px; display: block; }
+
+/* Carta: amarillo suave (el mismo de la portada de la masterclass) para el boton
+   "Quiero enterarme de la proxima" y el boton del formulario de la carta. */
+.btn-cta--carta,
+.lmh--carta .lm-submit {
+  background: #F7E9A0;
+  color: var(--color-dark);
+  box-shadow: none;
+}
+.btn-cta--carta:hover,
+.lmh--carta .lm-submit:hover { background: #F0DD80; }
+.lmh--carta .chip { background: #F7E9A0; color: var(--color-dark); }
