@@ -14,38 +14,78 @@
   <link rel="apple-touch-icon" href="/img/icon-180.png">
   <link rel="stylesheet" href="../css/styles.css">
   <style>
-    .priv { padding-top: 8px; }
-    .priv-intro {
-      font-family: var(--font-heading);
-      font-size: 15px;
-      line-height: 1.6;
-      color: var(--color-gray);
-      margin: 4px 0 6px;
-    }
-    .priv-fecha { font-size: 11px; color: var(--color-gray-light); margin-bottom: 8px; }
-    .priv h2 {
-      font-family: var(--font-heading);
-      font-size: 17px;
-      font-weight: 600;
-      line-height: 1.3;
-      margin: 28px 0 10px;
-      color: var(--color-dark);
-    }
-    .priv p, .priv li { font-size: 14px; line-height: 1.65; color: var(--color-dark); }
-    .priv p + p { margin-top: 10px; }
-    .priv ul { padding-left: 18px; margin-top: 6px; }
-    .priv li { margin-bottom: 7px; }
-    .priv a { color: var(--color-coral-dark); text-decoration: underline; }
-    .priv strong { font-weight: 600; }
-    .priv-caja {
+    .priv { padding-top: 4px; }
+    .priv-corto {
       background: var(--color-white);
       border: 1px solid var(--color-border);
       border-radius: var(--radius-md);
-      padding: 14px 16px;
-      margin-top: 12px;
+      padding: 16px 18px;
+      margin: 6px 0 8px;
     }
-    .priv-volver { text-align: center; margin-top: 30px; font-size: 13px; }
-    .priv-volver a { color: var(--color-coral-dark); text-decoration: underline; }
+    .priv-corto h2 {
+      font-family: var(--font-heading);
+      font-size: 17px;
+      font-weight: 600;
+      margin: 0 0 10px;
+    }
+    .priv-corto ul { list-style: none; padding: 0; margin: 0; }
+    .priv-corto li {
+      font-size: 14.5px;
+      line-height: 1.55;
+      padding: 7px 0 7px 26px;
+      position: relative;
+      border-top: 1px solid var(--color-border);
+    }
+    .priv-corto li:first-child { border-top: 0; padding-top: 2px; }
+    .priv-corto li span {
+      position: absolute;
+      left: 0;
+      top: 6px;
+      color: var(--color-coral);
+      font-size: 15px;
+    }
+    .priv-corto li:first-child span { top: 1px; }
+    .priv-fecha { font-size: 11px; color: var(--color-gray-light); margin: 6px 0 18px; text-align: center; }
+    .priv-sub {
+      font-family: var(--font-heading);
+      font-size: 14px;
+      color: var(--color-gray);
+      text-align: center;
+      margin: 18px 0 8px;
+    }
+    .priv details {
+      border-bottom: 1px solid var(--color-border);
+    }
+    .priv details:first-of-type { border-top: 1px solid var(--color-border); }
+    .priv summary {
+      font-family: var(--font-heading);
+      font-size: 15.5px;
+      font-weight: 600;
+      padding: 13px 28px 13px 0;
+      cursor: pointer;
+      list-style: none;
+      position: relative;
+    }
+    .priv summary::-webkit-details-marker { display: none; }
+    .priv summary::after {
+      content: "+";
+      position: absolute;
+      right: 4px;
+      top: 10px;
+      font-family: var(--font-body);
+      font-size: 20px;
+      font-weight: 400;
+      color: var(--color-coral);
+    }
+    .priv details[open] summary::after { content: "−"; }
+    .priv details > div { padding: 0 0 14px; }
+    .priv p, .priv details li { font-size: 13.5px; line-height: 1.6; color: var(--color-dark); }
+    .priv details p + p { margin-top: 8px; }
+    .priv details ul { padding-left: 18px; margin-top: 4px; }
+    .priv details li { margin-bottom: 5px; }
+    .priv a { color: var(--color-coral-dark); text-decoration: underline; }
+    .priv strong { font-weight: 600; }
+    .priv-volver { text-align: center; margin-top: 26px; font-size: 13px; }
   </style>
 </head>
 <body>
@@ -71,75 +111,86 @@
 
     <article class="priv">
 
-      <p class="priv-intro">Cuando me dejas tu correo o compras uno de mis recursos, me confías tus datos. Aquí te cuento, en simple, qué guardo, para qué lo uso y cómo puedes pedirme que lo borre.</p>
-      <p class="priv-fecha">Última actualización: 24 de noviembre de 2026</p>
+      <section class="priv-corto">
+        <h2>En corto</h2>
+        <ul>
+          <li><span>✿</span>Guardo tu nombre, tu correo y lo que compras.</li>
+          <li><span>✿</span>Los uso para mandarte mi carta, entregarte lo que compraste y mostrar mis anuncios.</li>
+          <li><span>✿</span>Nunca vendo tus datos.</li>
+          <li><span>✿</span>Puedes darte de baja o pedirme que los borre cuando quieras: <a href="mailto:tueducadoraamiga@gmail.com">tueducadoraamiga@gmail.com</a></li>
+        </ul>
+      </section>
+      <p class="priv-fecha">Actualizada el 24 de noviembre de 2026</p>
 
-      <h2>Quién soy</h2>
-      <p>La responsable de tus datos soy yo, <strong>Daniela Pas Meniconi Muñoz</strong> (Dani Meniconi), creadora de Tu Educadora Amiga.</p>
-      <p>Para cualquier pregunta sobre tus datos, escríbeme a <a href="mailto:tueducadoraamiga@gmail.com">tueducadoraamiga@gmail.com</a>.</p>
+      <p class="priv-sub">Si quieres el detalle, toca cada tema:</p>
 
-      <h2>Qué datos guardo</h2>
-      <ul>
-        <li><strong>Si te suscribes a mi carta o descargas una guía:</strong> tu nombre (si lo escribes), tu correo y si abres las cartas o haces clic en ellas.</li>
-        <li><strong>Si compras una masterclass, una grabación o un recurso:</strong> los datos que pide Hotmart para la compra, como tu nombre, tu correo, tu país y lo que compraste. Los datos de tu tarjeta los maneja Hotmart; yo nunca los veo.</li>
-        <li><strong>Si entras a una masterclass en vivo:</strong> el nombre y el correo con que te conectas a Zoom.</li>
-        <li><strong>Si te unes al Atelier Reggio:</strong> los datos de tu perfil en Skool y lo que compartes en la comunidad.</li>
-        <li><strong>Si ves mis anuncios o visitas mis páginas de venta:</strong> Meta (Facebook e Instagram) puede registrar que visitaste la página o que compraste, con una herramienta llamada píxel.</li>
-      </ul>
+      <details>
+        <summary>Quién soy</summary>
+        <div>
+          <p>La responsable de tus datos soy yo, <strong>Daniela Pas Meniconi Muñoz</strong> (Dani Meniconi), creadora de Tu Educadora Amiga. Contacto: <a href="mailto:tueducadoraamiga@gmail.com">tueducadoraamiga@gmail.com</a>.</p>
+        </div>
+      </details>
 
-      <h2>Para qué los uso</h2>
-      <ul>
-        <li>Mandarte mi carta semanal y lo que pediste, como las guías.</li>
-        <li>Entregarte lo que compraste y darte acceso.</li>
-        <li>Contarte sobre masterclass y recursos nuevos.</li>
-        <li>Saber si mis anuncios funcionan, mostrárselos a personas a las que les pueden interesar y no mostrarte anuncios de algo que ya compraste.</li>
-      </ul>
-      <div class="priv-caja">
-        <p><strong>Nunca vendo tus datos</strong> ni se los paso a nadie para que te escriba.</p>
-      </div>
+      <details>
+        <summary>Qué datos guardo</summary>
+        <div>
+          <ul>
+            <li><strong>Carta y guías:</strong> tu nombre, tu correo y si abres las cartas.</li>
+            <li><strong>Compras:</strong> lo que pide Hotmart (nombre, correo, país y lo que compraste). Tu tarjeta la maneja Hotmart; yo nunca la veo.</li>
+            <li><strong>Clases en vivo:</strong> tu nombre y correo en Zoom.</li>
+            <li><strong>Atelier Reggio:</strong> tu perfil en Skool y lo que compartes ahí.</li>
+            <li><strong>Anuncios:</strong> Meta puede registrar, con su píxel, que visitaste mis páginas de venta o que compraste.</li>
+          </ul>
+        </div>
+      </details>
 
-      <h2>Por qué puedo usarlos</h2>
-      <ul>
-        <li><strong>Tu permiso:</strong> cuando te suscribes a la carta o descargas una guía.</li>
-        <li><strong>Tu compra:</strong> necesito tus datos para entregarte lo que compraste.</li>
-        <li><strong>Mi interés en dar a conocer mi trabajo:</strong> para medir mis anuncios y mostrárselos a personas que ya me conocen. Siempre puedes decirme que no (más abajo te explico cómo).</li>
-      </ul>
+      <details>
+        <summary>Para qué los uso y por qué puedo</summary>
+        <div>
+          <ul>
+            <li>Mandarte la carta y lo que pediste, porque <strong>me diste tu permiso</strong> al suscribirte.</li>
+            <li>Entregarte lo que compraste, porque <strong>lo necesita tu compra</strong>.</li>
+            <li>Medir mis anuncios, mostrárselos a personas a las que les pueden interesar y no mostrarte algo que ya compraste, por mi <strong>interés en dar a conocer mi trabajo</strong>. Siempre me puedes decir que no.</li>
+          </ul>
+        </div>
+      </details>
 
-      <h2>Con quién los comparto</h2>
-      <p>Uso estas herramientas para hacer funcionar Tu Educadora Amiga. Cada una guarda solo lo que necesita y tiene su propia política de privacidad:</p>
-      <ul>
-        <li><strong>MailerLite:</strong> para enviar la carta.</li>
-        <li><strong>Hotmart:</strong> para las ventas y los pagos.</li>
-        <li><strong>Zoom:</strong> para las clases en vivo.</li>
-        <li><strong>Skool:</strong> para el Atelier Reggio.</li>
-        <li><strong>Meta (Facebook e Instagram):</strong> para mis anuncios y para medirlos. Si uso tu correo para mostrarte o no mostrarte un anuncio, se envía cifrado: Meta lo usa solo para encontrar coincidencias con sus usuarios y después lo borra.</li>
-        <li><strong>GitHub y Google Fonts:</strong> GitHub aloja esta web y Google Fonts le da los tipos de letra. Al abrir la página, reciben datos técnicos como tu dirección IP.</li>
-      </ul>
-      <p>Algunas de estas empresas guardan datos fuera de tu país (por ejemplo, en Estados Unidos o en Brasil), con las garantías que exige la ley.</p>
+      <details>
+        <summary>Con quién los comparto</summary>
+        <div>
+          <p>Solo con las herramientas que uso para trabajar: <strong>MailerLite</strong> (la carta), <strong>Hotmart</strong> (ventas y pagos), <strong>Zoom</strong> (clases en vivo), <strong>Skool</strong> (Atelier Reggio), <strong>Meta</strong> (anuncios) y <strong>GitHub</strong> y <strong>Google Fonts</strong> (que hacen funcionar esta web y reciben datos técnicos como tu IP).</p>
+          <p>Si uso tu correo para un anuncio, va cifrado: Meta solo lo usa para encontrar coincidencias y después lo borra. Algunas de estas empresas guardan datos fuera de tu país, con las garantías que exige la ley.</p>
+        </div>
+      </details>
 
-      <h2>Cuánto tiempo los guardo</h2>
-      <ul>
-        <li><strong>Tu correo de la carta:</strong> mientras estés suscrita. Si te das de baja, dejo de escribirte y lo borro de mi lista.</li>
-        <li><strong>Los datos de tus compras:</strong> el tiempo que exige la ley por temas tributarios.</li>
-      </ul>
+      <details>
+        <summary>Cuánto tiempo los guardo</summary>
+        <div>
+          <p>Tu correo, mientras estés suscrita; si te das de baja, lo borro de mi lista. Los datos de compras, el tiempo que exige la ley tributaria.</p>
+        </div>
+      </details>
 
-      <h2>Tus derechos</h2>
-      <p>Puedes pedirme en cualquier momento que te muestre los datos que tengo, que los corrija o que los borre. También puedes pedirme que no use tu correo para anuncios, o que te mande tus datos en un archivo.</p>
-      <ul>
-        <li><strong>Para dejar de recibir la carta:</strong> toca "darse de baja" al final de cualquier carta.</li>
-        <li><strong>Para todo lo demás:</strong> escríbeme a <a href="mailto:tueducadoraamiga@gmail.com">tueducadoraamiga@gmail.com</a>. Te respondo en un plazo máximo de 30 días.</li>
-      </ul>
-      <p>Si sientes que no cuidé bien tus datos, puedes reclamar ante la autoridad de protección de datos de tu país. En Chile es la Agencia de Protección de Datos Personales; en Francia, la CNIL; en España, la Agencia Española de Protección de Datos.</p>
+      <details>
+        <summary>Tus derechos</summary>
+        <div>
+          <p>Puedes pedirme ver, corregir o borrar tus datos, que no use tu correo para anuncios, o que te los mande en un archivo. Escríbeme a <a href="mailto:tueducadoraamiga@gmail.com">tueducadoraamiga@gmail.com</a> y te respondo en máximo 30 días. Para dejar la carta, toca "darse de baja" al final de cualquier carta.</p>
+          <p>Si sientes que no cuidé bien tus datos, puedes reclamar ante la autoridad de tu país: en Chile, la Agencia de Protección de Datos Personales; en Francia, la CNIL; en España, la AEPD.</p>
+        </div>
+      </details>
 
-      <h2>Esta web y los anuncios</h2>
-      <p>Esta web no usa cookies de publicidad ni el píxel de Meta. Mis páginas de venta y de pago en Hotmart sí usan el píxel de Meta y las cookies de Hotmart, que puedes revisar en su propio aviso.</p>
-      <p>Si no quieres que Meta use tu actividad en otras páginas para mostrarte anuncios, puedes cambiarlo en tus <a href="https://www.facebook.com/adpreferences" target="_blank" rel="noopener">preferencias de anuncios de Meta</a>, o en <a href="https://www.youronlinechoices.eu/" target="_blank" rel="noopener">youronlinechoices.eu</a> y <a href="https://www.aboutads.info/choices" target="_blank" rel="noopener">aboutads.info/choices</a>.</p>
+      <details>
+        <summary>Cookies y anuncios</summary>
+        <div>
+          <p>Esta web no usa cookies de publicidad. Mis páginas de venta en Hotmart sí usan el píxel de Meta y las cookies de Hotmart. Para elegir qué anuncios ves, entra a tus <a href="https://www.facebook.com/adpreferences" target="_blank" rel="noopener">preferencias de anuncios de Meta</a>, <a href="https://www.youronlinechoices.eu/" target="_blank" rel="noopener">youronlinechoices.eu</a> o <a href="https://www.aboutads.info/choices" target="_blank" rel="noopener">aboutads.info/choices</a>.</p>
+        </div>
+      </details>
 
-      <h2>Niños y niñas</h2>
-      <p>Mis recursos son para personas adultas que acompañan a la infancia. No recojo datos de niños y niñas. Si compartes fotos o trabajos de niños y niñas en el Atelier Reggio, asegúrate de tener el permiso de sus familias.</p>
-
-      <h2>Si cambio algo</h2>
-      <p>Si cambio algo importante en esta política, te lo cuento en la carta y actualizo la fecha de arriba.</p>
+      <details>
+        <summary>Niños y niñas</summary>
+        <div>
+          <p>Mis recursos son para personas adultas. No recojo datos de niños y niñas. Si compartes fotos o trabajos de niños y niñas en el Atelier, cuida tener el permiso de sus familias.</p>
+        </div>
+      </details>
 
       <p class="priv-volver"><a href="/">Volver a Tu Educadora Amiga</a></p>
 
