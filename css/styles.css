@@ -841,6 +841,7 @@ a.card--event:hover .card-event-cta {
 .lm-submit:hover { background: var(--color-coral-dark); }
 .lm-error { color: var(--color-coral-dark); font-size: 12px; margin: 0; font-weight: 600; }
 .lm-fine { font-size: 10px; color: var(--color-gray-light); line-height: 1.4; margin: 0; }
+.lm-fine a { color: var(--color-gray); text-decoration: underline; }
 .lm-success { text-align: center; padding: 12px 0; }
 .lm-success h4 { font-family: var(--font-heading); color: var(--color-coral); font-size: 20px; margin-bottom: 8px; }
 .lm-success p { font-family: var(--font-body); color: var(--color-gray); font-size: 14px; }
